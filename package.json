@@ -10,6 +10,11 @@
   "dependencies": {
     "antd": "^4.5.3",
     "dva": "^2.6.0-beta.6",
+    "enquire-js": "^0.2.1",
+    "rc-banner-anim": "^2.4.4",
+    "rc-queue-anim": "^1.8.5",
+    "rc-scroll-anim": "^2.7.4",
+    "rc-tween-one": "^2.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

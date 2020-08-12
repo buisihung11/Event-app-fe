@@ -1,13 +1,9 @@
-const config = {
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/index',
-      routes: [{ path: '/', component: '../pages/index' }],
-    },
-  ],
-  define: {
-    TITLE: 'Event application',
+const routes = [
+  {
+    path: '/',
+    component: '../layouts/index',
+    routes: [{ path: '/', component: '../pages/home/index' }],
   },
-};
-export default config;
+];
+
+export default routes;
