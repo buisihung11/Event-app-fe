@@ -6,30 +6,33 @@ import { Typography, Space } from 'antd';
 const EventItem = ({ name, location, price, imageURL, description }) => {
   return (
     <div className="event-wrapper">
-      <img src={imageURL} alt="Event Thumbnail" className="event-image" />
+      <div className="event-image-wrapper">
+        <div className="event-image-info">
+          <div>
+            <p style={{ color: 'rgb(255, 215, 98)' }}>${price || 'N/A'}</p>
+          </div>
+        </div>
+        <img src={imageURL} alt="Event Thumbnail" className="event-image" />
+      </div>
       <div className="event-content-wrapper">
         <div className="event-content">
-          <Space direction="vertical">
-            <Typography.Title style={{ color: '#ffffff' }} level={4}>
-              {name}
-            </Typography.Title>
-            <Typography.Text style={{ color: '#ffffff' }}>
-              <EnvironmentTwoTone twoToneColor="orange" />
-              {location}
-            </Typography.Text>
-            <Typography.Paragraph
+          <h4 className="event-font">{name}</h4>
+          <p className="event-font">
+            <EnvironmentTwoTone twoToneColor="orange" />
+            {location}
+          </p>
+          {/* <Typography.Paragraph
               ellipsis={{ rows: 2, expandable: false, symbol: 'more' }}
-              style={{ color: '#ffffff' }}
+              className="event-font"
             >
               {description}
-            </Typography.Paragraph>
-          </Space>
+            </Typography.Paragraph> */}
         </div>
-        <div className="event-content-extra">
+        {/* <div className="event-content-extra">
           <Typography.Text style={{ color: 'rgb(255, 215, 98)' }} strong>
             ${price || 'N/A'}
           </Typography.Text>
-        </div>
+        </div> */}
       </div>
     </div>
   );

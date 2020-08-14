@@ -55,11 +55,18 @@ function BasicLayout(props) {
     : Nav30DataSource;
 
   return (
-    <div className="templates-wrapper">
-      <Nav3 id="Nav3_0" key="Nav3_0" dataSource={newDataSrc} isMobile={isMobile} />
-      {show && props.children}
-      <Footer1 id="Footer1_0" key="Footer1_0" dataSource={Footer10DataSource} isMobile={isMobile} />
-    </div>
+    show && (
+      <div className="templates-wrapper">
+        <Nav3 id="Nav3_0" key="Nav3_0" dataSource={newDataSrc} isMobile={isMobile} />
+        {props.children}
+        <Footer1
+          id="Footer1_0"
+          key="Footer1_0"
+          dataSource={Footer10DataSource}
+          isMobile={isMobile}
+        />
+      </div>
+    )
   );
 }
 

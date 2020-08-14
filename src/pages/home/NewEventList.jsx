@@ -36,7 +36,9 @@ const NewEventList = () => {
   return (
     <Row style={{ width: '100%', margin: '0' }} justify="center">
       <Col span={24}>
-        <Typography.Title style={{ textAlign: 'center' }}>News Event: </Typography.Title>
+        <h1 className="event-list-title" style={{ textAlign: 'center' }}>
+          News Event:{' '}
+        </h1>
       </Col>
       <Col span={24}>
         <Row
