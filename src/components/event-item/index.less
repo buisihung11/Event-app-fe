@@ -5,6 +5,22 @@
     width: 100%;
     overflow: hidden;
   }
+  &-image-info {
+    width: 100%;
+  }
+  &-price {
+    position: absolute;
+    right: -5px;
+    padding: 3px 10px;
+    // padding-right: 20px;
+    background-color: orange;
+    border-bottom-right-radius: 10px;
+    & > p {
+      margin: 0;
+      color: #fff;
+      font-size: 0.8rem;
+    }
+  }
 
   &-list-title {
     font-size: 32px;
@@ -23,7 +39,7 @@
     max-height: 400px;
     position: relative;
     margin: 0 auto;
-    overflow: hidden;
+    // overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
