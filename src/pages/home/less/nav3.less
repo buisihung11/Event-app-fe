@@ -8,6 +8,10 @@
   position: relative;
   top: 0;
 
+  &-fixed {
+    position: fixed !important;
+  }
+
   .home-page {
     padding: 0 24px;
   }
@@ -48,7 +52,7 @@
     &-block {
       padding: 0 8px;
 
-      >* {
+      > * {
         display: inline-block;
       }
     }
@@ -57,7 +61,6 @@
   &-item,
   &-item-child,
   &-menu {
-
     .ant-menu-sub .ant-menu-item,
     .ant-menu-inline .ant-menu-item {
       height: auto;
@@ -108,9 +111,9 @@
       float: inherit;
       position: relative;
       left: -24px;
-      width: ~"calc(100% + 48px)";
+      width: ~'calc(100% + 48px)';
       opacity: 0;
-      transition: opacity .3s @ease-in-out;
+      transition: opacity 0.3s @ease-in-out;
       background: #fff;
 
       & li {
@@ -142,7 +145,7 @@
         height: 2px;
         background: @template-nav-bg-color;
         margin-top: 4px;
-        transition: transform .3s @ease-in-out, opacity .3s @ease-in-out;
+        transition: transform 0.3s @ease-in-out, opacity 0.3s @ease-in-out;
       }
 
       :first-child {
@@ -178,7 +181,7 @@
         }
       }
 
-      >.@{header3}-menu {
+      > .@{header3}-menu {
         opacity: 1;
         pointer-events: auto;
       }

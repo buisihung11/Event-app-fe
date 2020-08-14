@@ -25,6 +25,9 @@ import {
   Footer10DataSource,
 } from './data.source';
 import './less/antMotionStyle.less';
+import { BackTop, Space } from 'antd';
+import EventItem from '../../components/event-item';
+import NewEventList from './NewEventList';
 
 let isMobile;
 enquireScreen((b) => {
@@ -62,18 +65,14 @@ export default class Home extends React.Component {
 
   render() {
     const children = [
-      <Nav3
-        id="Nav3_0"
-        key="Nav3_0"
-        dataSource={Nav30DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Nav3 id="Nav3_0" key="Nav3_0" dataSource={Nav30DataSource} isMobile={this.state.isMobile} />,
       <Banner5
         id="Banner5_0"
         key="Banner5_0"
         dataSource={Banner50DataSource}
         isMobile={this.state.isMobile}
       />,
+      <NewEventList className="event-list-wrapper" />,
       <Content0
         id="Content0_0"
         key="Content0_0"
@@ -110,24 +109,14 @@ export default class Home extends React.Component {
         dataSource={Teams00DataSource}
         isMobile={this.state.isMobile}
       />,
-      <Footer1
-        id="Footer1_0"
-        key="Footer1_0"
-        dataSource={Footer10DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Footer1
+      //   id="Footer1_0"
+      //   key="Footer1_0"
+      //   dataSource={Footer10DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
+      <BackTop />,
     ];
-    return (
-      <div
-        className="templates-wrapper"
-        ref={(d) => {
-          this.dom = d;
-        }}
-      >
-        {/* 如果不是 dva 2.0 替换成 {children} start */}
-        {this.state.show && children}
-        {/* 如果不是 dva 2.0 替换成 {children} end */}
-      </div>
-    );
+    return this.state.show && children;
   }
 }

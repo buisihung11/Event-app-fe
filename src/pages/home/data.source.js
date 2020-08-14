@@ -4,7 +4,7 @@ export const Nav30DataSource = {
   page: { className: 'home-page' },
   logo: {
     className: 'header3-logo kdqui3vfogk-editor_css',
-    children: 'https://i.ibb.co/FWqTbWF/logo.png',
+    children: 'https://i.ibb.co/Ct3qhzf/logo.png',
   },
   Menu: {
     className: 'header3-menu',
@@ -102,17 +102,6 @@ export const Banner50DataSource = {
         children: (
           <span>
             <p>Checkout all the available event</p>
-          </span>
-        ),
-      },
-      {
-        name: 'content',
-        className: 'banner5-content',
-        children: (
-          <span>
-            <p>
-              <br />
-            </p>
           </span>
         ),
       },
@@ -630,7 +619,7 @@ export const Footer10DataSource = {
         className: 'block',
         title: {
           className: 'logo',
-          children: 'https://zos.alipayobjects.com/rmsportal/qqaimmXZVSwAhpL.svg',
+          children: 'https://i.ibb.co/Ct3qhzf/logo.png',
         },
         childWrapper: {
           className: 'slogan',
@@ -647,13 +636,13 @@ export const Footer10DataSource = {
         xs: 24,
         md: 6,
         className: 'block',
-        title: { children: '产品' },
+        title: { children: 'Info' },
         childWrapper: {
           children: [
-            { name: 'link0', href: '#', children: '产品更新记录' },
-            { name: 'link1', href: '#', children: 'API文档' },
-            { name: 'link2', href: '#', children: '快速入门' },
-            { name: 'link3', href: '#', children: '参考指南' },
+            { name: 'link0', href: '#', children: 'Update' },
+            { name: 'link1', href: '#', children: 'API' },
+            { name: 'link2', href: '#', children: 'Quick Start' },
+            { name: 'link3', href: '#', children: 'Reference' },
           ],
         },
       },
@@ -662,11 +651,11 @@ export const Footer10DataSource = {
         xs: 24,
         md: 6,
         className: 'block',
-        title: { children: '关于' },
+        title: { children: 'Bussiness' },
         childWrapper: {
           children: [
             { href: '#', name: 'link0', children: 'FAQ' },
-            { href: '#', name: 'link1', children: '联系我们' },
+            { href: '#', name: 'link1', children: 'How it work!' },
           ],
         },
       },
@@ -675,7 +664,7 @@ export const Footer10DataSource = {
         xs: 24,
         md: 6,
         className: 'block',
-        title: { children: '资源' },
+        title: { children: 'Discover' },
         childWrapper: {
           children: [
             { href: '#', name: 'link0', children: 'Ant Design' },
