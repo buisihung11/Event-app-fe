@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev",
+    "start": "node server.js",
     "build": "umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix",
@@ -10,9 +10,12 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.5.3",
+    "compression": "^1.7.4",
     "dva": "^2.6.0-beta.6",
     "enquire-js": "^0.2.1",
+    "express": "^4.17.1",
     "moment": "^2.27.0",
+    "morgan": "^1.10.0",
     "rc-banner-anim": "^2.4.4",
     "rc-queue-anim": "^1.8.5",
     "rc-scroll-anim": "^2.7.4",
@@ -41,6 +44,6 @@
     ]
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=13.0.0"
   }
 }
