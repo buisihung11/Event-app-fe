@@ -4,6 +4,7 @@ import Nav3 from '../pages/home/Nav3';
 import Footer1 from '../pages/home/Footer1';
 import { useState, useEffect, useCallback } from 'react';
 import useMobile from '../hooks/useMobile';
+import './layout.less';
 
 const { location = {} } = typeof window !== 'undefined' ? window : {};
 
