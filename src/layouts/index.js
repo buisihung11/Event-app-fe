@@ -1,15 +1,9 @@
-import { Layout, Menu, Breadcrumb, Button, BackTop } from 'antd';
+import { BackTop } from 'antd';
 import { Nav30DataSource, Footer10DataSource } from '../pages/home/data.source';
 import Nav3 from '../pages/home/Nav3';
 import Footer1 from '../pages/home/Footer1';
-import { enquireScreen } from 'enquire-js';
 import { useState, useEffect, useCallback } from 'react';
 import useMobile from '../hooks/useMobile';
-
-let isMobileConfig;
-enquireScreen((b) => {
-  isMobileConfig = b;
-});
 
 const { location = {} } = typeof window !== 'undefined' ? window : {};
 
