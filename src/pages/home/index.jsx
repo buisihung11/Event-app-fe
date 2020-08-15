@@ -11,10 +11,8 @@ import Feature2 from './Feature2';
 import Content11 from './Content11';
 import Pricing1 from './Pricing1';
 import Teams0 from './Teams0';
-import Footer1 from './Footer1';
 
 import {
-  Nav30DataSource,
   Banner50DataSource,
   Content00DataSource,
   Content10DataSource,
@@ -22,11 +20,8 @@ import {
   Content110DataSource,
   Pricing10DataSource,
   Teams00DataSource,
-  Footer10DataSource,
 } from './data.source';
 import './less/antMotionStyle.less';
-import { BackTop, Space } from 'antd';
-import EventItem from '../../components/event-item';
 import NewEventList from './NewEventList';
 
 let isMobile;
