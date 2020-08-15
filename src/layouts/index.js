@@ -1,9 +1,10 @@
-import { Layout, Menu, Breadcrumb, Button } from 'antd';
+import { Layout, Menu, Breadcrumb, Button, BackTop } from 'antd';
 import { Nav30DataSource, Footer10DataSource } from '../pages/home/data.source';
 import Nav3 from '../pages/home/Nav3';
 import Footer1 from '../pages/home/Footer1';
 import { enquireScreen } from 'enquire-js';
 import { useState, useEffect, useCallback } from 'react';
+import useMobile from '../hooks/useMobile';
 
 let isMobileConfig;
 enquireScreen((b) => {
@@ -13,7 +14,7 @@ enquireScreen((b) => {
 const { location = {} } = typeof window !== 'undefined' ? window : {};
 
 function BasicLayout(props) {
-  const [isMobile, setIsMobile] = useState(isMobileConfig);
+  const isMobile = useMobile();
   const [show, setShow] = useState(!location.port);
   const [scrolled, setScrolled] = useState(false);
 
@@ -34,11 +35,6 @@ function BasicLayout(props) {
   }, [handleChangeNavStyle]);
 
   useEffect(() => {
-    enquireScreen((b) => {
-      setIsMobile(!!b);
-    });
-    // dva 2.0 样式在组件渲染之后动态加载，导致滚动组件不生效；线上不影响；
-    /* 如果不是 dva 2.0 请删除 start */
     if (location.port) {
       // 样式 build 时间在 200-300ms 之间;
       setTimeout(() => {
@@ -58,13 +54,16 @@ function BasicLayout(props) {
     show && (
       <div className="templates-wrapper">
         <Nav3 id="Nav3_0" key="Nav3_0" dataSource={newDataSrc} isMobile={isMobile} />
-        {props.children}
+        <div style={{ minHeight: '90vh', marginTop: scrolled ? '64px' : '0px' }}>
+          {props.children}
+        </div>
         <Footer1
           id="Footer1_0"
           key="Footer1_0"
           dataSource={Footer10DataSource}
           isMobile={isMobile}
         />
+        <BackTop />
       </div>
     )
   );
