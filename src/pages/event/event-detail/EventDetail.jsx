@@ -5,8 +5,24 @@ import {
   ClockCircleTwoTone,
   WifiOutlined,
   UsergroupAddOutlined,
+  CompassTwoTone,
+  FacebookOutlined,
+  TwitterOutlined,
+  InstagramOutlined,
 } from '@ant-design/icons';
-import { Row, Space, Typography, Carousel, Col, Button, Card, Divider, Affix } from 'antd';
+import {
+  Row,
+  Space,
+  Typography,
+  Carousel,
+  Col,
+  Button,
+  Card,
+  Divider,
+  Affix,
+  Timeline,
+  Tag,
+} from 'antd';
 import './index.less';
 import useMobile from '../../../hooks/useMobile';
 
@@ -36,6 +52,7 @@ const EventDetail = (props) => {
 
   const isMobile = useMobile();
   const [settings, setSettings] = useState(carouselSettings);
+  const [tabKey, setTabKey] = useState('workingHour');
 
   useEffect(() => {
     setSettings({
@@ -45,15 +62,94 @@ const EventDetail = (props) => {
     });
   }, [isMobile]);
 
-  const [{ name, channel, time, description }, setEvent] = useState({
+  const [{ name, channel, time, description, location }, setEvent] = useState({
     name: 'Conference on Sustainable Development',
     channel: 'Solution Network',
     time: '12-12-2020 11:00 AM',
+    location: 'Toa nha Landmark Quan BT HCM',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod tempor incididunt labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error si voluptatem accusantium doloremque laudantium, totam rem aperiam.',
   });
 
   console.log('id', id);
+
+  const tabList = [
+    {
+      key: 'workingHour',
+      tab: 'Working Hours',
+    },
+    {
+      key: 'agenda',
+      tab: 'Agenda',
+    },
+  ];
+
+  const tabContents = {
+    workingHour: (
+      <section>
+        {/* <Typography.Title level={4}>Opening Hours</Typography.Title> */}
+        <Row justify="space-between" align="bottom">
+          <Col>Monday</Col>
+          <Col>
+            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="space-between">
+          <Col>Tuesday</Col>
+          <Col>
+            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="space-between">
+          <Col>Wednesday</Col>
+          <Col>
+            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="space-between">
+          <Col>Thrusday</Col>
+          <Col>
+            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="space-between">
+          <Col>Friday</Col>
+          <Col>
+            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="space-between">
+          <Col>Saturday</Col>
+          <Col>
+            <Typography.Text type="warning">Closed</Typography.Text>
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="space-between">
+          <Col>Sunday</Col>
+          <Col>
+            <Typography.Text type="warning">Closed</Typography.Text>
+          </Col>
+        </Row>
+      </section>
+    ),
+    agenda: (
+      <section>
+        <Timeline mode="alternate">
+          <Timeline.Item label="2015-09-01">Create a services</Timeline.Item>
+          <Timeline.Item label="2015-09-01 09:12:11">Solve initial network problems</Timeline.Item>
+          <Timeline.Item>Technical testing</Timeline.Item>
+          <Timeline.Item label="2015-09-01 09:12:11">Network problems being solved</Timeline.Item>
+        </Timeline>
+      </section>
+    ),
+  };
+
   return (
     <Space style={{ width: '100%' }} direction="vertical" size="large">
       <section className="event-header">
@@ -66,6 +162,10 @@ const EventDetail = (props) => {
               </Typography.Text>
               <Typography.Text type="secondary">
                 <ClockCircleTwoTone /> {moment(time).format('dddd, DD-M-YYYY')}
+                <Tag color="processing"> In-coming</Tag>
+              </Typography.Text>
+              <Typography.Text type="secondary">
+                <CompassTwoTone /> {location}
               </Typography.Text>
             </Space>
           </Col>
@@ -133,62 +233,59 @@ const EventDetail = (props) => {
           <Col xs={24} md={8}>
             <Space direction="vertical" size="middle">
               {!isMobile && <Card className="event-location event-small-info">Map</Card>}
-              <Affix offsetTop={70}>
-                <Card className=" event-small-info">
-                  <Typography.Title level={4}>Opening Hours</Typography.Title>
-                  <Row justify="space-between" align="bottom">
-                    <Col>Monday</Col>
-                    <Col>
-                      <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
-                    </Col>
-                  </Row>
-                  <Divider />
-                  <Row justify="space-between">
-                    <Col>Tuesday</Col>
-                    <Col>
-                      <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
-                    </Col>
-                  </Row>
-                  <Divider />
-                  <Row justify="space-between">
-                    <Col>Wednesday</Col>
-                    <Col>
-                      <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
-                    </Col>
-                  </Row>
-                  <Divider />
-                  <Row justify="space-between">
-                    <Col>Thrusday</Col>
-                    <Col>
-                      <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
-                    </Col>
-                  </Row>
-                  <Divider />
-                  <Row justify="space-between">
-                    <Col>Friday</Col>
-                    <Col>
-                      <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
-                    </Col>
-                  </Row>
-                  <Divider />
-                  <Row justify="space-between">
-                    <Col>Saturday</Col>
-                    <Col>
-                      <Typography.Text type="warning">Closed</Typography.Text>
-                    </Col>
-                  </Row>
-                  <Divider />
-                  <Row justify="space-between">
-                    <Col>Sunday</Col>
-                    <Col>
-                      <Typography.Text type="warning">Closed</Typography.Text>
-                    </Col>
-                  </Row>
-                </Card>
-              </Affix>
-              <Card className="event-small-info">
+              <Card
+                className="event-small-info"
+                tabList={tabList}
+                activeTabKey={tabKey}
+                onTabChange={setTabKey}
+              >
+                {tabContents[tabKey]}
+              </Card>
+              <Card className="event-small-info" title="Contact">
+                <Row justify="space-between" align="bottom">
+                  <Col>Address:</Col>
+                  <Col>
+                    <Typography.Text type="secondary">Quan 9 HCMC</Typography.Text>
+                  </Col>
+                </Row>
+                <Divider />
+                <Row justify="space-between">
+                  <Col>Phone:</Col>
+                  <Col>
+                    <Typography.Text type="secondary">(+84)123456791</Typography.Text>
+                  </Col>
+                </Row>
+                <Divider />
+                <Row justify="space-between">
+                  <Col>Mail: </Col>
+                  <Col>
+                    <Typography.Text type="secondary">company@gmail.com</Typography.Text>
+                  </Col>
+                </Row>
+                <Divider />
+                <Row justify="space-between">
+                  <Col>Website: </Col>
+                  <Col>
+                    <Typography.Text type="secondary">
+                      <a href="https://google.com" target="_blank">
+                        https://google.com
+                      </a>
+                    </Typography.Text>
+                  </Col>
+                </Row>
+                <Divider />
+                <Space
+                  direction="horizontal"
+                  style={{ width: '100%', justifyContent: 'flex-end' }}
+                  align="end"
+                >
+                  <FacebookOutlined style={{ color: 'blue', fontSize: '1.5rem' }} />
+                  <TwitterOutlined style={{ color: 'blueviolet', fontSize: '1.5rem' }} />
+                  <InstagramOutlined style={{ color: 'red', fontSize: '1.5rem' }} />
+                </Space>
+              </Card>
+              <Card className="event-small-info" title="You may also like">
                 <Space direction="vertical">
-                  <Typography.Title level={4}>You may also like</Typography.Title>
                   <div className="event-similar">
                     <img
                       src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
