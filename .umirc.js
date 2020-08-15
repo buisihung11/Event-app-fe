@@ -6,7 +6,10 @@ export default {
     {
       path: '/',
       component: '../layouts/index',
-      routes: [{ path: '/', component: '../pages/home/index' }],
+      routes: [
+        { path: '/', component: '../pages/home/index' },
+        { path: '/events/:id', component: '../pages/event/event-detail/EventDetail' },
+      ],
     },
   ],
   plugins: [

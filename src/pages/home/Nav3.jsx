@@ -2,6 +2,7 @@ import React from 'react';
 import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
 import { getChildrenToRender } from './utils';
+import { Link } from 'umi';
 
 const { Item, SubMenu } = Menu;
 
@@ -32,10 +33,7 @@ class Header3 extends React.Component {
             key={item.name}
             {...itemProps}
             title={
-              <div
-                {...a}
-                className={`header3-item-block ${a.className}`.trim()}
-              >
+              <div {...a} className={`header3-item-block ${a.className}`.trim()}>
                 {a.children.map(getChildrenToRender)}
               </div>
             }
@@ -44,13 +42,9 @@ class Header3 extends React.Component {
             {subItem.map(($item, ii) => {
               const { children: childItem } = $item;
               const child = childItem.href ? (
-                <a {...childItem}>
-                  {childItem.children.map(getChildrenToRender)}
-                </a>
+                <Link {...childItem}>{childItem.children.map(getChildrenToRender)}</Link>
               ) : (
-                <div {...childItem}>
-                  {childItem.children.map(getChildrenToRender)}
-                </div>
+                <div {...childItem}>{childItem.children.map(getChildrenToRender)}</div>
               );
               return (
                 <Item key={$item.name || ii.toString()} {...$item}>
@@ -63,9 +57,9 @@ class Header3 extends React.Component {
       }
       return (
         <Item key={item.name} {...itemProps}>
-          <a {...a} className={`header3-item-block ${a.className}`.trim()}>
+          <Link {...a} to={a.href} className={`header3-item-block ${a.className}`.trim()}>
             {a.children.map(getChildrenToRender)}
-          </a>
+          </Link>
         </Item>
       );
     });
@@ -81,10 +75,7 @@ class Header3 extends React.Component {
           {...dataSource.page}
           className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
         >
-          <TweenOne
-            animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-            {...dataSource.logo}
-          >
+          <TweenOne animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }} {...dataSource.logo}>
             <img width="100%" src={dataSource.logo.children} alt="img" />
           </TweenOne>
           {isMobile && (
