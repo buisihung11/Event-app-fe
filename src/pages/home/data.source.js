@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'umi-plugin-react/locale';
 export const Nav30DataSource = {
   wrapper: { className: 'header3 home-page-wrapper' },
   page: { className: 'home-page' },
@@ -35,7 +36,7 @@ export const Nav30DataSource = {
             {
               children: (
                 <span>
-                  <p>Events</p>
+                  <p><FormattedMessage id='header.menu.events'/></p>
                 </span>
               ),
               name: 'text',

@@ -1,5 +1,9 @@
 import { Component } from 'react';
-import { Radio, DatePicker, Divider, Layout } from 'antd';
+import { Divider, Layout } from 'antd';
+import { FilterOutlined } from '@ant-design/icons';
+import { CategoryFilter, LocationFilter, TimeFilter } from './filters';
+import { FormattedMessage } from 'umi-plugin-react/locale';
+import {  } from 'umi-plugin-locale';
 const { Sider } = Layout;
 class EventListSider extends Component {
   render = () => (
@@ -10,21 +14,22 @@ class EventListSider extends Component {
       collapsedWidth="0"
       trigger={null}
     >
+      <h1 className="sider-header">
+        <FilterOutlined /> <FormattedMessage id="events.list.filters"/>
+      </h1>
+      <Divider style={{ backgroundColor: 'red' }} />
+      <h2 className="sider-filters"><FormattedMessage id="events.list.filters.time"/></h2>
+      <TimeFilter
+        timeFilterValue={this.props.timeFilterValue}
+        onTimeFilterChange={this.props.onTimeFilterChange}
+        onDatePickerChange={this.props.onDatePickerChange}
+      />
       <Divider />
-      <Radio.Group
-        value={this.props.timeFilterValue}
-        onChange={this.props.onTimeFilterChange}
-        buttonStyle="solid"
-        size="small"
-      >
-        <Radio.Button value="today">Today</Radio.Button>
-        <Radio.Button value="tomorrow">Tomorrow</Radio.Button>
-        <Radio.Button value="nextweek">Next week</Radio.Button>
-        <Radio.Button value="nextmonth">Next month</Radio.Button>
-        <DatePicker size="small" onChange={this.props.onDatePickerChange} />v
-      </Radio.Group>
+      <h2 className="sider-filters"><FormattedMessage id="events.list.filters.location"/></h2>
+      <LocationFilter />
       <Divider />
-      More filters go here
+      <h2 className="sider-filters"><FormattedMessage id="events.list.filters.category"/></h2>
+      <CategoryFilter />
     </Sider>
   );
 }
