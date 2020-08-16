@@ -51,6 +51,7 @@ class EventList extends Component {
         onDatePickerChange={this.onDatePickerChange}
       />
       <Content
+      events={this.state.events}
         currentPage={this.state.currentPage}
         totalPages={this.state.totalPages}
         onPaginationChange={this.onPaginationChange}
