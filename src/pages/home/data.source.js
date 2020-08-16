@@ -30,12 +30,12 @@ export const Nav30DataSource = {
         name: 'item1',
         className: 'header3-item',
         children: {
-          href: '#',
+          href: '/events',
           children: [
             {
               children: (
                 <span>
-                  <p>Page 1</p>
+                  <p>Events</p>
                 </span>
               ),
               name: 'text',

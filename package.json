@@ -4,6 +4,7 @@
     "start": "node server.js",
     "dev": "umi dev",
     "build": "umi build",
+    "dev": "umi dev",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix",
     "precommit": "lint-staged"

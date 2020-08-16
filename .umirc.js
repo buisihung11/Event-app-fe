@@ -8,6 +8,7 @@ export default {
       component: '../layouts/index',
       routes: [
         { path: '/', component: '../pages/home/index' },
+        { path: '/events', component: '../pages/events-list/index' },
         { path: '/events/:id', component: '../pages/event/event-detail/EventDetail' },
       ],
     },
