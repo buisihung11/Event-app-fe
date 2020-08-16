@@ -204,6 +204,7 @@ const EventDetail = (props) => {
           <div>
             <div style={contentStyle}>
               <img
+                className="event-gallery-img"
                 alt="Event gallery"
                 src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
               />
@@ -212,6 +213,7 @@ const EventDetail = (props) => {
           <div>
             <div style={contentStyle}>
               <img
+                className="event-gallery-img"
                 alt="Event gallery"
                 src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
               />
@@ -220,6 +222,7 @@ const EventDetail = (props) => {
           <div>
             <div style={contentStyle}>
               <img
+                className="event-gallery-img"
                 alt="Event gallery"
                 src="https://images.unsplash.com/photo-1471967183320-ee018f6e114a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
               />
@@ -228,6 +231,7 @@ const EventDetail = (props) => {
           <div>
             <div style={contentStyle}>
               <img
+                className="event-gallery-img"
                 alt="Event gallery"
                 src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
               />
