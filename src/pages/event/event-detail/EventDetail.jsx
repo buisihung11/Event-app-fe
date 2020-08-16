@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
+import QueueAnim from 'rc-queue-anim';
 import {
   NotificationOutlined,
   ClockCircleTwoTone,
@@ -152,6 +153,23 @@ const EventDetail = (props) => {
     ),
   };
 
+  const animType = {
+    queue: isMobile ? 'bottom' : 'right',
+    one: isMobile
+      ? {
+          scaleY: '+=0.3',
+          opacity: 0,
+          type: 'from',
+          ease: 'easeOutQuad',
+        }
+      : {
+          x: '+=30',
+          opacity: 0,
+          type: 'from',
+          ease: 'easeOutQuad',
+        },
+  };
+
   return (
     <Space style={{ width: '100%' }} direction="vertical" size="large">
       <section className="event-header">
@@ -219,7 +237,7 @@ const EventDetail = (props) => {
       </section>
       <section className="event-content-wrapper">
         <Row gutter={[16, 16]}>
-          <Col xs={24} md={16}>
+          <Col xs={24} md={15}>
             <Space direction="vertical">
               <section className="event-info">
                 <Typography.Title>About this event</Typography.Title>
@@ -262,10 +280,17 @@ const EventDetail = (props) => {
               </section>
             </Space>
           </Col>
-          <Col xs={24} md={8}>
-            <Space direction="vertical" size="middle">
-              {!isMobile && <Card className="event-location event-small-info">Map</Card>}
+          <Col xs={24} md={9}>
+            <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+              {/* <QueueAnim key="event-info-1" type={animType.queue} ease={['easeOutCubic', 'easeInCubic']} leaveReverse> */}
+              {!isMobile && (
+                <Card key="event-location" className="event-location event-small-info">
+                  Map
+                </Card>
+              )}
               <Card
+                key="event-overview"
+                hoverable
                 className="event-small-info"
                 tabList={tabList}
                 activeTabKey={tabKey}
@@ -273,7 +298,7 @@ const EventDetail = (props) => {
               >
                 {tabContents[tabKey]}
               </Card>
-              <Card className="event-small-info" title="Contact">
+              <Card key="event-contact" className="event-small-info" title="Contact">
                 <Row justify="space-between" align="bottom">
                   <Col>Address:</Col>
                   <Col>
@@ -316,7 +341,7 @@ const EventDetail = (props) => {
                   <InstagramOutlined style={{ color: 'red', fontSize: '1.5rem' }} />
                 </Space>
               </Card>
-              <Card className="event-small-info" title="You may also like">
+              <Card key="event-similar" className="event-small-info" title="You may also like">
                 <Space direction="vertical">
                   <div className="event-similar">
                     <img
@@ -364,6 +389,7 @@ const EventDetail = (props) => {
                   </div>
                 </Space>
               </Card>
+              {/* </QueueAnim> */}
             </Space>
           </Col>
         </Row>
