@@ -20,6 +20,7 @@ export default {
       {
         antd: true,
         dva: true,
+        pwa: true,
         dynamicImport: { webpackChunkName: true },
         title: 'Event Application',
         dll: false,

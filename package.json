@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "unievent",
   "scripts": {
     "start": "node server.js",
     "dev": "umi dev",
