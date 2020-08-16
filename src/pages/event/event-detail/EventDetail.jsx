@@ -30,11 +30,11 @@ import CommentSection from './CommentSection';
 
 const contentStyle = {
   height: '250px',
-  color: '#fff',
-  margin: '0 10px',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
+  // color: '#fff',
+  // margin: '0 10px',
+  // lineHeight: '160px',
+  // textAlign: 'center',
+  // background: '#364d79',
 };
 
 // TODO: Change carouselSetting when screen size is mobile
