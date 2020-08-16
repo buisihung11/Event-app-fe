@@ -9,6 +9,7 @@ import {
   FacebookOutlined,
   TwitterOutlined,
   InstagramOutlined,
+  StarTwoTone,
 } from '@ant-design/icons';
 import {
   Row,
@@ -25,6 +26,7 @@ import {
 } from 'antd';
 import './index.less';
 import useMobile from '../../../hooks/useMobile';
+import CommentSection from './CommentSection';
 
 const contentStyle = {
   height: '250px',
@@ -161,17 +163,20 @@ const EventDetail = (props) => {
                 By - <Typography.Text strong>{channel}</Typography.Text>
               </Typography.Text>
               <Typography.Text type="secondary">
-                <ClockCircleTwoTone /> {moment(time).format('dddd, DD-M-YYYY')}
-                <Tag color="processing"> In-coming</Tag>
+                <ClockCircleTwoTone /> {moment(time).format('dddd, DD-M-YYYY')}{' '}
+                <Tag color="processing">In-coming</Tag>
               </Typography.Text>
               <Typography.Text type="secondary">
                 <CompassTwoTone /> {location}
+              </Typography.Text>
+              <Typography.Text type="secondary">
+                <StarTwoTone twoToneColor="yellow" /> 5 bean
               </Typography.Text>
             </Space>
           </Col>
           <Col>
             <Button type="primary" icon={<NotificationOutlined />}>
-              Subcrice
+              Join
             </Button>
           </Col>
         </Row>
@@ -179,16 +184,36 @@ const EventDetail = (props) => {
       <section className="event-gallery">
         <Carousel {...settings}>
           <div>
-            <h3 style={contentStyle}>1</h3>
+            <div style={contentStyle}>
+              <img
+                alt="Event gallery"
+                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              />
+            </div>
           </div>
           <div>
-            <h3 style={contentStyle}>2</h3>
+            <div style={contentStyle}>
+              <img
+                alt="Event gallery"
+                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              />
+            </div>
           </div>
           <div>
-            <h3 style={contentStyle}>3</h3>
+            <div style={contentStyle}>
+              <img
+                alt="Event gallery"
+                src="https://images.unsplash.com/photo-1471967183320-ee018f6e114a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+              />
+            </div>
           </div>
           <div>
-            <h3 style={contentStyle}>4</h3>
+            <div style={contentStyle}>
+              <img
+                alt="Event gallery"
+                src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              />
+            </div>
           </div>
         </Carousel>
       </section>
@@ -226,7 +251,14 @@ const EventDetail = (props) => {
                     <UsergroupAddOutlined /> Meeting Spaces
                   </Typography.Text>
                 </Space>
-                <Divider />
+                {/* <Divider />
+                <Card title={<Typography.Title level={3}>Comments</Typography.Title>}>
+                  <CommentSection />
+                  <Divider orientation="left">
+                    <Typography.Title level={4}>Your comment</Typography.Title>
+                  </Divider>
+                  <CommentSection.Editor />
+                </Card> */}
               </section>
             </Space>
           </Col>
