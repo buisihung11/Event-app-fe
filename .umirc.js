@@ -26,7 +26,10 @@ export default {
         dll: false,
         locale: {
           enable: true,
-          default: 'en-US',
+          default: 'vi-VN',
+          baseNavigator: true, 
+          antd: true, 
+          baseSeparator: '-', 
         },
         routes: {
           exclude: [

@@ -2,19 +2,30 @@
 
 .@{event-list}-wrapper {
     background: #fff;
+    padding: 2rem 3rem;
     .@{event-list}-sider{
         background: #fff;
-        padding:10px
+        padding:10px;
+        box-shadow: 0 0 15px rgba(0,0,0,.1);
+        margin-right: 20px;
     }
-  
+    .sider-header{
+      margin-top: 10px;
+    }
+    .sider-filters{
+      margin-bottom: 10px;
+    }
   
 }
 
 @media screen and (max-width: 768px) {
   .@{event-list}-wrapper {
-    // min-height: 880px;
+    padding: 1rem 1rem;
     .@{event-list}-sider{
-        padding:0
+        padding:0;
+        
+        margin-right: 0;
     }
+    
   }
 }
