@@ -19,7 +19,7 @@ export const Nav30DataSource = {
             {
               children: (
                 <span>
-                  <p>Home</p>
+                  <p><FormattedMessage id='header.menu.home'/></p>
                 </span>
               ),
               name: 'text',

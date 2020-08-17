@@ -3,7 +3,6 @@
   "name": "unievent",
   "scripts": {
     "start": "node server.js",
-    "dev": "umi dev",
     "build": "umi build",
     "dev": "umi dev",
     "test": "umi test",

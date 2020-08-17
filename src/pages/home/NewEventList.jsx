@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Typography, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import EventItem from '../../components/event-item';
 
 const fakeEvents = [
@@ -37,7 +37,7 @@ const NewEventList = () => {
     <Row style={{ width: '100%', margin: '0' }} justify="center">
       <Col span={24}>
         <h1 className="event-list-title" style={{ textAlign: 'center' }}>
-          News Event:{' '}
+          Các Sự kiện mới:{' '}
         </h1>
       </Col>
       <Col span={24}>

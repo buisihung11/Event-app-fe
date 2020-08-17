@@ -1,8 +1,8 @@
 export default {
   'index.start': 'Getting Started',
+  'header.menu.home': 'Home',
   'events.list.filters':'Filters',
   'header.menu.events':'Events',
-  
   'events.list.search':'Search for more events',
   'events.list.filters.location':'Location',
   'events.list.filters.location.city':'City',
@@ -12,4 +12,29 @@ export default {
   'events.list.filters.time.tomorrow':'Tomorrow',
   'events.list.filters.time.nextweek':'Next week',
   'events.list.filters.time.nextmonth':'Next month',
+
+  // GLOBAL
+  'global.timetable.monday' : 'Monday',
+  'global.timetable.tueday' : 'Tuesday',
+  'global.timetable.wednesday' : 'Wednesday',
+  'global.timetable.thrusday' : 'Thrusday',
+  'global.timetable.friday' : 'Friday',
+  'global.timetable.saturday' : 'Saturday',
+  'global.timetable.sunday' : 'Sunday',
+  'global.closed': 'Closed',
+
+  // EVENT-DETAIL PAGE
+  'event-detail.by': 'By',
+  'event-detail.join-btn': 'Join',
+  'event-detail.about-title': 'About this Event',
+  'event-detail.hoster-title': 'Presenter',
+  'event-detail.feature-title': 'Features',
+  'event-detail.working-hour': 'Working Hour',
+  'event-detail.agenda': 'Agenda',
+  'event-detail.contact': 'Contact',
+  'event-detail.contact.address': 'Address',
+  'event-detail.contact.mail': 'Mail',
+  'event-detail.contact.phone': 'Phone',
+  'event-detail.contact.website': 'Website',
+  'event-detail.similar': 'Similar Event',
 }

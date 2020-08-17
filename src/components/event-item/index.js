@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Link, router } from 'umi';
+import { router } from 'umi';
 import { EnvironmentTwoTone, ClockCircleTwoTone } from '@ant-design/icons';
 import './index.less';
 import { Badge, Card, Space } from 'antd';

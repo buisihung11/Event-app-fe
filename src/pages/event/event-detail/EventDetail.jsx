@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import QueueAnim from 'rc-queue-anim';
 import {
   NotificationOutlined,
   ClockCircleTwoTone,
@@ -21,13 +20,13 @@ import {
   Button,
   Card,
   Divider,
-  Affix,
   Timeline,
   Tag,
 } from 'antd';
 import './index.less';
 import useMobile from '../../../hooks/useMobile';
-import CommentSection from './CommentSection';
+import { formatMessage } from 'umi-plugin-locale';
+// import CommentSection from './CommentSection';
 
 const contentStyle = {
   height: '250px',
@@ -79,11 +78,11 @@ const EventDetail = (props) => {
   const tabList = [
     {
       key: 'workingHour',
-      tab: 'Working Hours',
+      tab: formatMessage({ id: 'event-detail.working-hour' }),
     },
     {
       key: 'agenda',
-      tab: 'Agenda',
+      tab: formatMessage({ id: 'event-detail.agenda' }),
     },
   ];
 
@@ -92,51 +91,55 @@ const EventDetail = (props) => {
       <section>
         {/* <Typography.Title level={4}>Opening Hours</Typography.Title> */}
         <Row justify="space-between" align="bottom">
-          <Col>Monday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.monday' })}</Col>
           <Col>
             <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between">
-          <Col>Tuesday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.tueday' })}</Col>
           <Col>
             <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between">
-          <Col>Wednesday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.wednesday' })}</Col>
           <Col>
             <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between">
-          <Col>Thrusday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.thrusday' })}</Col>
           <Col>
             <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between">
-          <Col>Friday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.friday' })}</Col>
           <Col>
             <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between">
-          <Col>Saturday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.saturday' })}</Col>
           <Col>
-            <Typography.Text type="warning">Closed</Typography.Text>
+            <Typography.Text type="warning">
+              {formatMessage({ id: 'global.closed' })}
+            </Typography.Text>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between">
-          <Col>Sunday</Col>
+          <Col>{formatMessage({ id: 'global.timetable.sunday' })}</Col>
           <Col>
-            <Typography.Text type="warning">Closed</Typography.Text>
+            <Typography.Text type="warning">
+              {formatMessage({ id: 'global.closed' })}
+            </Typography.Text>
           </Col>
         </Row>
       </section>
@@ -178,7 +181,8 @@ const EventDetail = (props) => {
             <Space direction="vertical" align="start">
               <Typography.Title level={1}>{name}</Typography.Title>
               <Typography.Text type="secondary">
-                By - <Typography.Text strong>{channel}</Typography.Text>
+                {formatMessage({ id: 'event-detail.by' })} -{' '}
+                <Typography.Text strong>{channel}</Typography.Text>
               </Typography.Text>
               <Typography.Text type="secondary">
                 <ClockCircleTwoTone /> {moment(time).format('dddd, DD-M-YYYY')}{' '}
@@ -194,7 +198,7 @@ const EventDetail = (props) => {
           </Col>
           <Col>
             <Button type="primary" icon={<NotificationOutlined />}>
-              Join
+              {formatMessage({ id: 'event-detail.join-btn' })}
             </Button>
           </Col>
         </Row>
@@ -244,12 +248,16 @@ const EventDetail = (props) => {
           <Col xs={24} md={15}>
             <Space direction="vertical">
               <section className="event-info">
-                <Typography.Title>About this event</Typography.Title>
+                <Typography.Title>
+                  {formatMessage({ id: 'event-detail.about-title' })}
+                </Typography.Title>
                 <Typography.Paragraph type="secondary">{description}</Typography.Paragraph>
               </section>
               <section className="event-host">
                 <Space direction="vertical">
-                  <Typography.Title level={4}>Hoster</Typography.Title>
+                  <Typography.Title level={4}>
+                    {formatMessage({ id: 'event-detail.hoster-title' })}
+                  </Typography.Title>
                   <div>
                     <Typography.Text>David Smith</Typography.Text>
                     <Typography.Paragraph type="secondary">
@@ -265,7 +273,9 @@ const EventDetail = (props) => {
                 </Space>
                 <Divider />
                 <Space direction="vertical">
-                  <Typography.Title level={4}>Features</Typography.Title>
+                  <Typography.Title level={4}>
+                    {formatMessage({ id: 'event-detail.feature-title' })}
+                  </Typography.Title>
                   <Typography.Text>
                     <WifiOutlined /> Wifi
                   </Typography.Text>
@@ -302,30 +312,34 @@ const EventDetail = (props) => {
               >
                 {tabContents[tabKey]}
               </Card>
-              <Card key="event-contact" className="event-small-info" title="Contact">
+              <Card
+                key="event-contact"
+                className="event-small-info"
+                title={formatMessage({ id: 'event-detail.contact' })}
+              >
                 <Row justify="space-between" align="bottom">
-                  <Col>Address:</Col>
+                  <Col>{formatMessage({ id: 'event-detail.contact.address' })}:</Col>
                   <Col>
                     <Typography.Text type="secondary">Quan 9 HCMC</Typography.Text>
                   </Col>
                 </Row>
                 <Divider />
                 <Row justify="space-between">
-                  <Col>Phone:</Col>
+                  <Col>{formatMessage({ id: 'event-detail.contact.phone' })}:</Col>
                   <Col>
                     <Typography.Text type="secondary">(+84)123456791</Typography.Text>
                   </Col>
                 </Row>
                 <Divider />
                 <Row justify="space-between">
-                  <Col>Mail: </Col>
+                  <Col>{formatMessage({ id: 'event-detail.contact.mail' })}: </Col>
                   <Col>
                     <Typography.Text type="secondary">company@gmail.com</Typography.Text>
                   </Col>
                 </Row>
                 <Divider />
                 <Row justify="space-between">
-                  <Col>Website: </Col>
+                  <Col>{formatMessage({ id: 'event-detail.contact.website' })}: </Col>
                   <Col>
                     <Typography.Text type="secondary">
                       <a href="https://google.com" target="_blank">
@@ -345,7 +359,11 @@ const EventDetail = (props) => {
                   <InstagramOutlined style={{ color: 'red', fontSize: '1.5rem' }} />
                 </Space>
               </Card>
-              <Card key="event-similar" className="event-small-info" title="You may also like">
+              <Card
+                key="event-similar"
+                className="event-small-info"
+                title={formatMessage({ id: 'event-detail.similar' })}
+              >
                 <Space direction="vertical">
                   <div className="event-similar">
                     <img
