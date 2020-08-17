@@ -35,7 +35,7 @@ export default class EventsList extends React.Component {
 
   render() {
     const children = [
-      <EventList className="event-list-wrapper" />
+      <EventList className="event-list-wrapper" isMobile={this.state.isMobile} />
     ];
     return this.state.show && children;
   }
