@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'umi';
 import moment from 'moment';
 import {
   NotificationOutlined,
@@ -10,6 +11,7 @@ import {
   TwitterOutlined,
   InstagramOutlined,
   StarTwoTone,
+  HeartOutlined,
 } from '@ant-design/icons';
 import {
   Row,
@@ -22,6 +24,10 @@ import {
   Divider,
   Timeline,
   Tag,
+  Avatar,
+  Menu,
+  Affix,
+  Grid,
 } from 'antd';
 import './index.less';
 import useMobile from '../../../hooks/useMobile';
@@ -47,10 +53,13 @@ const carouselSettings = {
   centerPadding: '60px',
 };
 
+const { useBreakpoint } = Grid;
+
 const EventDetail = (props) => {
   const {
     params: { id },
   } = props.match;
+  const { lg } = useBreakpoint();
 
   const isMobile = useMobile();
   const [settings, setSettings] = useState(carouselSettings);
@@ -64,7 +73,9 @@ const EventDetail = (props) => {
     });
   }, [isMobile]);
 
-  const [{ name, channel, time, description, location }, setEvent] = useState({
+  const [{ name, channel, time, description, location, banner }, setEvent] = useState({
+    banner:
+      'https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.0-9/109228393_1721419681330083_8289757739294266576_n.png?_nc_cat=108&_nc_sid=730e14&_nc_ohc=kJ1wlKlftDgAX_eQQwE&_nc_ht=scontent.fsgn5-5.fna&oh=893db861ef7bab72a3f6708806554426&oe=5F604201',
     name: 'Conference on Sustainable Development',
     channel: 'Solution Network',
     time: '12-12-2020 11:00 AM',
@@ -174,34 +185,95 @@ const EventDetail = (props) => {
   };
 
   return (
-    <Space style={{ width: '100%' }} direction="vertical" size="large">
-      <section className="event-header">
-        <Row gutter={[0, 16]} align="middle">
+    <div
+      className="event-detail"
+      style={{ width: '100%', backgroundColor: '#f1f1f1' }}
+      direction="vertical"
+      size="large"
+    >
+      <section>
+        <img src={banner} alt="Event Banner" className="event-image-banner" />
+      </section>
+      <section className="event-header-wrapper">
+        <Row
+          className="event-header"
+          justify="center"
+          gutter={[16, 16]}
+          align="middle"
+          style={{ margin: '0' }}
+        >
           <Col flex={1}>
-            <Space direction="vertical" align="start">
-              <Typography.Title level={1}>{name}</Typography.Title>
-              <Typography.Text type="secondary">
+            <div className="event-header-title">
+              <h1>{name}</h1>
+            </div>
+            {/* <Typography.Title level={4} type="secondary">
                 {formatMessage({ id: 'event-detail.by' })} -{' '}
-                <Typography.Text strong>{channel}</Typography.Text>
-              </Typography.Text>
-              <Typography.Text type="secondary">
-                <ClockCircleTwoTone /> {moment(time).format('dddd, DD-M-YYYY')}{' '}
-                <Tag color="processing">In-coming</Tag>
-              </Typography.Text>
-              <Typography.Text type="secondary">
-                <CompassTwoTone /> {location}
-              </Typography.Text>
-              <Typography.Text type="secondary">
-                <StarTwoTone twoToneColor="yellow" /> 5 bean
-              </Typography.Text>
-            </Space>
+                <Typography.Title level={4} strong>
+                  {channel}
+                </Typography.Title>
+              </Typography.Title> */}
+            <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
+              <Col span={2}>
+                <ClockCircleTwoTone />
+              </Col>
+              <Col span={22}>
+                <p className="event-info">
+                  {moment(time).format('dddd, DD-M-YYYY')} <Tag color="processing">In-coming</Tag>
+                </p>
+              </Col>
+            </Row>
+            <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
+              <Col span={2}>
+                <CompassTwoTone />
+              </Col>
+              <Col span={22}>
+                <p className="event-info">{location}</p>
+              </Col>
+            </Row>
           </Col>
           <Col>
-            <Button type="primary" icon={<NotificationOutlined />}>
+            <div style={{ marginBottom: '15px' }}>
+              <Button
+                type="primary"
+                danger
+                style={{ width: '100%' }}
+                size="large"
+                // icon={<NotificationOutlined />}
+              >
+                {formatMessage({ id: 'event-detail.buy-ticket' })}
+              </Button>
+            </div>
+            <Button size="large" icon={<NotificationOutlined />}>
               {formatMessage({ id: 'event-detail.join-btn' })}
             </Button>
+            <Button size="large" icon={<HeartOutlined />}>
+              <Typography.Text style={{ color: 'pink' }}>
+                {formatMessage({ id: 'event-detail.follow' })}
+              </Typography.Text>
+            </Button>
+            <div style={{ textAlign: 'center', margin: '1rem 0' }}>
+              <Typography.Text type="secondary">1 người quan tâm</Typography.Text>
+            </div>
           </Col>
         </Row>
+        {!isMobile && (
+          <Affix offsetTop={65} style={{ zIndex: '90' }}>
+            <Menu
+              mode="horizontal"
+              style={{ textAlign: 'left', padding: '0rem 3rem', borderTop: '1px solid #e4e5e6' }}
+            >
+              <Menu.Item key="mail">
+                <a href="#about">{formatMessage({ id: 'event-detail.about-title' })}</a>
+              </Menu.Item>
+              <Menu.Item key="app">
+                <a href="#agenda">{formatMessage({ id: 'event-detail.agenda' })}</a>
+              </Menu.Item>
+              <Menu.Item key="alipay">
+                <a href="#organizer">{formatMessage({ id: 'event-detail.organizer' })}</a>
+              </Menu.Item>
+            </Menu>
+          </Affix>
+        )}
       </section>
       <section className="event-gallery">
         <Carousel {...settings}>
@@ -244,34 +316,35 @@ const EventDetail = (props) => {
         </Carousel>
       </section>
       <section className="event-content-wrapper">
-        <Row gutter={[16, 16]}>
-          <Col xs={24} md={15}>
-            <Space direction="vertical">
-              <section className="event-info">
-                <Typography.Title>
+        <Row gutter={[16, 16]} justify="space-between">
+          <Col xs={24} lg={14} className="event-content-section">
+            <Card
+              id="about"
+              title={
+                <Typography.Title level={3}>
                   {formatMessage({ id: 'event-detail.about-title' })}
                 </Typography.Title>
-                <Typography.Paragraph type="secondary">{description}</Typography.Paragraph>
-              </section>
-              <section className="event-host">
-                <Space direction="vertical">
-                  <Typography.Title level={4}>
-                    {formatMessage({ id: 'event-detail.hoster-title' })}
-                  </Typography.Title>
-                  <div>
-                    <Typography.Text>David Smith</Typography.Text>
-                    <Typography.Paragraph type="secondary">
-                      Business Speaker, Investor, Author.
-                    </Typography.Paragraph>
-                  </div>
-                  <div>
-                    <Typography.Text>Maria Rodriguez</Typography.Text>
-                    <Typography.Paragraph type="secondary">
-                      Innovation Speaker, Business Professor.
-                    </Typography.Paragraph>
-                  </div>
-                </Space>
-                <Divider />
+              }
+            >
+              <Space direction="vertical">
+                <section className="event-info">
+                  <Typography.Paragraph type="secondary">{description}</Typography.Paragraph>
+                </section>
+                <Typography.Title level={4}>
+                  {formatMessage({ id: 'event-detail.hoster-title' })}
+                </Typography.Title>
+                <div>
+                  <Typography.Text>David Smith</Typography.Text>
+                  <Typography.Paragraph type="secondary">
+                    Business Speaker, Investor, Author.
+                  </Typography.Paragraph>
+                </div>
+                <div>
+                  <Typography.Text>Maria Rodriguez</Typography.Text>
+                  <Typography.Paragraph type="secondary">
+                    Innovation Speaker, Business Professor.
+                  </Typography.Paragraph>
+                </div>
                 <Space direction="vertical">
                   <Typography.Title level={4}>
                     {formatMessage({ id: 'event-detail.feature-title' })}
@@ -283,35 +356,95 @@ const EventDetail = (props) => {
                     <UsergroupAddOutlined /> Meeting Spaces
                   </Typography.Text>
                 </Space>
-                {/* <Divider />
-                <Card title={<Typography.Title level={3}>Comments</Typography.Title>}>
-                  <CommentSection />
-                  <Divider orientation="left">
-                    <Typography.Title level={4}>Your comment</Typography.Title>
-                  </Divider>
-                  <CommentSection.Editor />
-                </Card> */}
-              </section>
-            </Space>
+              </Space>
+            </Card>
+            <Card
+              id="agenda"
+              key="event-overview"
+              tabList={tabList}
+              activeTabKey={tabKey}
+              onTabChange={setTabKey}
+            >
+              {tabContents[tabKey]}
+            </Card>
+            <Card
+              id="organizer"
+              style={{ width: '100%' }}
+              title={
+                <Typography.Title>
+                  {formatMessage({ id: 'event-detail.organizer' })}
+                </Typography.Title>
+              }
+            >
+              <Card.Meta
+                avatar={
+                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                }
+                title="ABC Company"
+                description="This is the description"
+              />
+            </Card>
           </Col>
-          <Col xs={24} md={9}>
+          <Col xs={24} lg={9}>
             <Space direction="vertical" size="middle" style={{ width: '100%' }}>
               {/* <QueueAnim key="event-info-1" type={animType.queue} ease={['easeOutCubic', 'easeInCubic']} leaveReverse> */}
-              {!isMobile && (
+              {/* {!isMobile && (
                 <Card key="event-location" className="event-location event-small-info">
                   Map
                 </Card>
+              )} */}
+              {lg && (
+                <Affix offsetTop={128} className="event-small-info">
+                  <Card>
+                    <div className="event-header-title">
+                      <h1 style={{ fontSize: '18px' }}>{name}</h1>
+                    </div>
+                    <Divider />
+                    <Row justify="center" gutter={[16, 16]} align="middle" style={{ margin: '0' }}>
+                      <Col span={24}>
+                        <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
+                          <Col span={2}>
+                            <ClockCircleTwoTone />
+                          </Col>
+                          <Col span={22}>
+                            <p className="event-info">
+                              {moment(time).format('dddd, DD-M-YYYY')}{' '}
+                              <Tag color="processing">In-coming</Tag>
+                            </p>
+                          </Col>
+                        </Row>
+                        <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
+                          <Col span={2}>
+                            <CompassTwoTone />
+                          </Col>
+                          <Col span={22}>
+                            <p className="event-info">{location}</p>
+                          </Col>
+                        </Row>
+                      </Col>
+                      <Col span={24}>
+                        <div style={{ marginBottom: '15px' }}>
+                          <Button
+                            type="primary"
+                            danger
+                            style={{ width: '100%' }}
+
+                            // icon={<NotificationOutlined />}
+                          >
+                            {formatMessage({ id: 'event-detail.buy-ticket' })}
+                          </Button>
+                        </div>
+                        <Button style={{ width: '50%' }} icon={<NotificationOutlined />}>
+                          {formatMessage({ id: 'event-detail.join-btn' })}
+                        </Button>
+                        <Button style={{ width: '50%' }} icon={<HeartOutlined />}>
+                          {formatMessage({ id: 'event-detail.follow' })}
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Affix>
               )}
-              <Card
-                key="event-overview"
-                hoverable
-                className="event-small-info"
-                tabList={tabList}
-                activeTabKey={tabKey}
-                onTabChange={setTabKey}
-              >
-                {tabContents[tabKey]}
-              </Card>
               <Card
                 key="event-contact"
                 className="event-small-info"
@@ -417,7 +550,7 @@ const EventDetail = (props) => {
         </Row>
       </section>
       {/* NAME IMAGE INFO FEATURES */}
-    </Space>
+    </div>
   );
 };
 

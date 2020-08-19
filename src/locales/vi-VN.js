@@ -26,6 +26,8 @@ export default {
   // EVENT-DETAIL PAGE
   'event-detail.by': 'Đăng bởi',
   'event-detail.join-btn': 'Tham gia',
+  'event-detail.follow': 'Quan tâm',
+  'event-detail.buy-ticket': 'Mua vé',
   'event-detail.about-title': 'Thông tin sự kiện',
   'event-detail.hoster-title': 'Diễn giả',
   'event-detail.feature-title': 'Tiện ích',
@@ -37,4 +39,5 @@ export default {
   'event-detail.contact.phone': 'Điện thoại',
   'event-detail.contact.website': 'Trang chủ',
   'event-detail.similar': 'Sự kiện tương tự',
+  'event-detail.organizer': 'Nhà tổ chức',
 };
