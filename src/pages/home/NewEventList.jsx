@@ -4,7 +4,7 @@ import EventItem from '../../components/event-item';
 
 const fakeEvents = [
   {
-    name: 'Event name 1',
+    name: 'Watercolor Workshop vẽ tranh: Sương - Dreaming Land',
     location: 'Dongo 184 Crono, Canada',
     price: 40,
     imageURL:

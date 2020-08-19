@@ -40,7 +40,7 @@
     position: relative;
     margin: 0 auto;
     // overflow: hidden;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
@@ -50,15 +50,37 @@
       cubic-bezier(0.215, 0.61, 0.355, 1);
     transition-delay: 0s, 0s;
     &:hover {
+      opacity: 0.6;
       // transform: translate(0, -10px);
-      box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
-      transform: translateY(-5px);
-      .@{event}-font {
-        transition: all 300ms ease-in-out;
-        color: orange !important;
+      // box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+      // transform: translateY(-5px);
+      // .@{event}-font {
+      //   transition: all 300ms ease-in-out;
+      //   color: orange !important;
+      // }
+    }
+    .@{event}-content-thumbnail {
+      // border-bottom: 1px dashed #615649;
+      background-color: transparent;
+      // padding: 0 1rem;
+      color: #ffffff;
+      &-extra {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &-wrapper {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        padding: 0;
+        margin-top: 10px;
+        // padding: 1rem 2rem;
       }
     }
-
     @media screen and (max-width: 460px) {
       margin: 0 auto;
     }
@@ -70,6 +92,7 @@
     opacity: 0.8;
     z-index: 2;
     object-fit: cover;
+    border-radius: 15px;
     &-info {
       position: absolute;
       display: flex;
@@ -78,28 +101,6 @@
     }
     &-wrapper {
       position: relative;
-    }
-  }
-
-  &-content {
-    // border-bottom: 1px dashed #615649;
-    background-color: transparent;
-    padding: 0 1rem;
-    color: #ffffff;
-    &-extra {
-      padding-top: 1rem;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    &-wrapper {
-      width: 100%;
-      position: relative;
-      bottom: 0;
-      left: 0;
-      z-index: 3;
-      margin-top: 10px;
-      // padding: 1rem 2rem;
     }
   }
 }
