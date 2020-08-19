@@ -25,7 +25,7 @@ export default {
 
   // EVENT-DETAIL PAGE
   'event-detail.by': 'By',
-  'event-detail.join-btn': 'Join',
+  'event-detail.join-btn': 'Share',
   'event-detail.follow': 'Follow',
   'event-detail.buy-ticket': 'Buy Ticket',
   'event-detail.about-title': 'About this Event',

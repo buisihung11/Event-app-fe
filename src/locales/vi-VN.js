@@ -25,7 +25,7 @@ export default {
 
   // EVENT-DETAIL PAGE
   'event-detail.by': 'Đăng bởi',
-  'event-detail.join-btn': 'Tham gia',
+  'event-detail.join-btn': 'Chia sẻ',
   'event-detail.follow': 'Quan tâm',
   'event-detail.buy-ticket': 'Mua vé',
   'event-detail.about-title': 'Thông tin sự kiện',
