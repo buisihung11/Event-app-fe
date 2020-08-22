@@ -79,7 +79,7 @@ const EventItemDetail = ({
             }
             color={price !== 0 ? '#E9C40C' : '#41B5A4'}
           >
-            <img src={imageURL} alt="Event Thumbnail" className="event-image" />
+            <Image src={imageURL} alt="Event Thumbnail" className="event-image" />
           </Badge.Ribbon>
         }
         {...otherProps}

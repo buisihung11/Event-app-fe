@@ -149,7 +149,7 @@ const ContentSection = ({ description, name, time, location, tickets, address })
 
   return (
     <section className="event-content-wrapper">
-      <Row gutter={[16, 16]} justify="space-between">
+      <Row gutter={[16, 16]} justify="space-between" style={{ width: '100%', margin: 0 }}>
         <Col xs={24} lg={14} className="event-content-section">
           <Collapse expandIconPosition="right" defaultActiveKey="about">
             <Collapse.Panel

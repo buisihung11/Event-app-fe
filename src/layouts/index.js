@@ -49,7 +49,7 @@ function BasicLayout(props) {
     show && (
       <div className="templates-wrapper">
         <Nav3 id="Nav3_0" key="Nav3_0" dataSource={newDataSrc} isMobile={isMobile} />
-        <div style={{ minHeight: '90vh', marginTop: scrolled ? '64px' : '0px' }}>
+        <div style={{  marginTop: scrolled ? '64px' : '0px' }}>
           {props.children}
         </div>
         <Footer1
