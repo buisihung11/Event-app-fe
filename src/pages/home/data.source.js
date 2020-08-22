@@ -139,7 +139,7 @@ export const Content00DataSource = {
         name: 'title',
         children: (
           <span>
-            <p>Features</p>
+            <p>Tính năng:</p>
           </span>
         ),
       },
@@ -278,7 +278,7 @@ export const Content10DataSource = {
       <span>
         <span>
           <span>
-            <p>First feature</p>
+            <p>Tính năng 1</p>
           </span>
         </span>
       </span>
@@ -288,7 +288,7 @@ export const Content10DataSource = {
     className: 'content1-content',
     children: (
       <span>
-        <p>Some thing about first feature.</p>
+        <p>Miêu tả về tính năng này.</p>
       </span>
     ),
   },
@@ -305,7 +305,7 @@ export const Feature20DataSource = {
     className: 'content2-title',
     children: (
       <span>
-        <p>Second feature</p>
+        <p>Tính năng 2</p>
       </span>
     ),
   },
@@ -313,7 +313,7 @@ export const Feature20DataSource = {
     className: 'content2-content',
     children: (
       <span>
-        <p>Somethign about second feature.</p>
+        <p>Miêu tả về tính năng này.</p>
       </span>
     ),
   },
@@ -335,7 +335,7 @@ export const Content110DataSource = {
         name: 'title',
         children: (
           <span>
-            <p>Get Started</p>
+            <p>Bắt đầu</p>
           </span>
         ),
         className: 'title-h1',
@@ -344,14 +344,14 @@ export const Content110DataSource = {
         name: 'content',
         children: (
           <span>
-            <p>Let's sign up and start your event</p>
+            <p>Đăng ký và tạo ngay sự kiện của bạn</p>
           </span>
         ),
         className: 'title-content',
       },
       {
         name: 'content2',
-        children: '现场问诊，为你答疑解难',
+        children: 'Nhanh chóng và dễ dàng',
         className: 'title-content',
       },
     ],
@@ -364,7 +364,7 @@ export const Content110DataSource = {
         href: '#',
         children: (
           <span>
-            <p>Create first event</p>
+            <p>Tạo sự kiện</p>
           </span>
         ),
       },

@@ -8,7 +8,9 @@ const Image = ({ src, loader, unloader, ...imgProps }) => {
       src={[src]}
       loading="lazy"
       loader={
-        loader || <img style={{ width: '100%', height: '100%' }} src={ImageLoading} alt="Loading" />
+        loader || (
+          <img style={{ width: '100%', height: '200px' }} src={ImageLoading} alt="Loading" />
+        )
       }
       unloader={unloader || <Skeleton.Image />}
       // style={{ width: '100%', height: '100%' }}

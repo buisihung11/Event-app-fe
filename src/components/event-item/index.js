@@ -59,6 +59,7 @@ const EventItemDetail = ({
   time = '12-12-2020',
   categories = ['Khác'],
   city = 'ho chi minh',
+  ...otherProps
 }) => {
   return (
     <Link to={`events/${id}`}>
@@ -69,59 +70,51 @@ const EventItemDetail = ({
         cover={
           <Badge.Ribbon
             text={
-              <Typography.Text>
+              <Typography.Text style={{ color: '#fff' }}>
                 {price !== 0 && 'Từ '}
-                <Typography.Text strong>
+                <Typography.Text style={{ color: '#fff' }} strong>
                   {price === 0 ? 'Miễn Phí' : `${price} VND`}
                 </Typography.Text>
               </Typography.Text>
             }
-            color="yellow"
+            color={price !== 0 ? '#E9C40C' : '#41B5A4'}
           >
             <img src={imageURL} alt="Event Thumbnail" className="event-image" />
           </Badge.Ribbon>
         }
+        {...otherProps}
         // onClick={() => router.push(`/events/${id}`)}
       >
-        <Card.Meta
-          title={
-            <Typography.Title
-              level={4}
-              style={{ margin: '0' }}
-              ellipsis={{ rows: 2, expandable: false }}
-              className="event-font"
-            >
-              {name}
-            </Typography.Title>
-          }
-          description={
-            <Space direction="vertical" className="event-content" size="small">
-              {/* <Typography.Text>
-                {price !== 0 && 'Từ '}
-                <Typography.Text strong>
-                  {price === 0 ? 'Miễn Phí' : `${price} VND`}
-                </Typography.Text>
-              </Typography.Text> */}
-              <Typography.Paragraph>
-                <Tag>{city.toUpperCase()}</Tag>
-                <Divider type="vertical" />
-                <Space direction="horizontal">
-                  {categories.map((cate) => (
-                    <Tag color="success" icon={<TagOutlined />}>
-                      {cate}
-                    </Tag>
-                  ))}
-                </Space>
-              </Typography.Paragraph>
-              {/* <p className="event-font">
-                <ClockCircleTwoTone /> {formatDate(time)}
-              </p>
+        <div>
+          <Typography.Title
+            level={4}
+            style={{ margin: '0', fontSize: '16px', height: '50px' }}
+            ellipsis={{ rows: 2, expandable: false }}
+            className="event-font"
+          >
+            {name}
+          </Typography.Title>
+          <>
+            <Typography.Paragraph strong className="event-font">
+              <ClockCircleTwoTone /> {formatDate(time)}
+            </Typography.Paragraph>
+            <Typography.Paragraph>
+              <Tag>{city.toUpperCase()}</Tag>
+              <Divider type="vertical" />
+              <Space direction="horizontal">
+                {categories.map((cate) => (
+                  <Tag color="success" icon={<TagOutlined />}>
+                    {cate}
+                  </Tag>
+                ))}
+              </Space>
+            </Typography.Paragraph>
+            {/* 
               <p className="event-font" style={{ marginBottom: '0' }}>
                 <EnvironmentTwoTone twoToneColor="orange" /> {location}
               </p> */}
-            </Space>
-          }
-        />
+          </>
+        </div>
       </Card>
     </Link>
   );

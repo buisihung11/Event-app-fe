@@ -9,7 +9,7 @@ for (let i = 1; i <= 9; i++) {
   fakeEvents.push({
     name: 'Sự kiện ' + i,
     location: 'Dongo 184 Crono, Canada',
-    price: i * 20,
+    price:  i === 2 ? 0 : i * 20,
     imageURL:
       'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     description:
