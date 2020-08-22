@@ -210,10 +210,20 @@ const ContentSection = ({ description, name, time, location, tickets, address })
               <Collapse accordion>
                 {tickets.map(({ name, price, description, isAvailable }) => {
                   const extra = (
-                    <Space direction="vertical" align="bottom" justify="end" size="small">
-                      <Typography.Text>{price} VND</Typography.Text>
+                    <Space
+                      style={{ textAlign: 'right' }}
+                      direction="vertical"
+                      align="bottom"
+                      justify="end"
+                      size="small"
+                    >
+                      <Typography.Text style={{ textAlign: 'right' }}>{price} VND</Typography.Text>
                       <Typography.Text>
-                        {!isAvailable && <Tag color="red">Hết vé</Tag>}
+                        {!isAvailable && (
+                          <Tag style={{ margin: 0 }} color="red">
+                            Hết vé
+                          </Tag>
+                        )}
                       </Typography.Text>
                     </Space>
                   );
