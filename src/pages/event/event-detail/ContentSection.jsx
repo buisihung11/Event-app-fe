@@ -28,13 +28,14 @@ import {
   Grid,
 } from 'antd';
 import useMobile from '../../../hooks/useMobile';
+import { formatDate } from '../../../utils';
 
 const { useBreakpoint } = Grid;
 
-const ContentSection = ({ description, name, time, location }) => {
+const ContentSection = ({ description, name, time, location, tickets, address }) => {
   const [tabKey, setTabKey] = useState('workingHour');
   const isMobile = useMobile();
-  const { lg, md } = useBreakpoint();
+  const { lg, md, sm } = useBreakpoint();
 
   const tabList = [
     {
@@ -51,56 +52,85 @@ const ContentSection = ({ description, name, time, location }) => {
     workingHour: (
       <section>
         {/* <Typography.Title level={4}>Opening Hours</Typography.Title> */}
-        <Row justify="space-between" align="bottom">
-          <Col>{formatMessage({ id: 'global.timetable.monday' })}</Col>
-          <Col>
-            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.monday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
+            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
+              Mua vé ngay
+            </Button>
           </Col>
         </Row>
         <Divider />
-        <Row justify="space-between">
-          <Col>{formatMessage({ id: 'global.timetable.tueday' })}</Col>
-          <Col>
-            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.tueday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
+            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
+              Mua vé ngay
+            </Button>
           </Col>
         </Row>
         <Divider />
-        <Row justify="space-between">
-          <Col>{formatMessage({ id: 'global.timetable.wednesday' })}</Col>
-          <Col>
-            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.wednesday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
+            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
+              Mua vé ngay
+            </Button>
           </Col>
         </Row>
         <Divider />
-        <Row justify="space-between">
-          <Col>{formatMessage({ id: 'global.timetable.thrusday' })}</Col>
-          <Col>
-            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.thrusday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
+            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
+              Mua vé ngay
+            </Button>
           </Col>
         </Row>
         <Divider />
-        <Row justify="space-between">
-          <Col>{formatMessage({ id: 'global.timetable.friday' })}</Col>
-          <Col>
-            <Typography.Text type="secondary">08.00am - 05.00pm</Typography.Text>
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.friday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
+            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
+              Mua vé ngay
+            </Button>
           </Col>
         </Row>
         <Divider />
-        <Row justify="space-between">
-          <Col>{formatMessage({ id: 'global.timetable.saturday' })}</Col>
-          <Col>
-            <Typography.Text type="warning">
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.saturday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="warning">
               {formatMessage({ id: 'global.closed' })}
-            </Typography.Text>
+            </Typography.Paragraph>
           </Col>
         </Row>
         <Divider />
-        <Row justify="space-between">
-          <Col>{formatMessage({ id: 'global.timetable.sunday' })}</Col>
-          <Col>
-            <Typography.Text type="warning">
+        <Row justify="space-between" align="middle">
+          <Col xs={24} flex={1}>
+            {formatMessage({ id: 'global.timetable.sunday' })}
+          </Col>
+          <Col span={10} style={{ textAlign: 'right' }}>
+            <Typography.Paragraph type="warning">
               {formatMessage({ id: 'global.closed' })}
-            </Typography.Text>
+            </Typography.Paragraph>
           </Col>
         </Row>
       </section>
@@ -167,6 +197,48 @@ const ContentSection = ({ description, name, time, location }) => {
             </Collapse.Panel>
           </Collapse>
 
+          <Collapse expandIconPosition="right" defaultActiveKey="ticket-info">
+            <Collapse.Panel
+              id="ticket-info"
+              key="ticket-info"
+              header={
+                <Typography.Title style={{ textTransform: 'uppercase' }} level={3}>
+                  {formatMessage({ id: 'event-detail.ticket-info' })}
+                </Typography.Title>
+              }
+            >
+              <Collapse accordion>
+                {tickets.map(({ name, price, description, isAvailable }) => {
+                  const extra = (
+                    <Space direction="vertical" align="bottom" justify="end" size="small">
+                      <Typography.Text>{price} VND</Typography.Text>
+                      <Typography.Text>
+                        {!isAvailable && <Tag color="red">Hết vé</Tag>}
+                      </Typography.Text>
+                    </Space>
+                  );
+                  // if (!description) return <Typography.Title level={4}>{name}</Typography.Title>;
+                  return (
+                    <Collapse.Panel
+                      key={name}
+                      header={
+                        <div className="event-ticket-title">
+                          <Typography.Title level={4} style={{ display: 'inline-block' }}>
+                            {name}
+                          </Typography.Title>
+                        </div>
+                      }
+                      extra={extra}
+                      showArrow={false}
+                      // disabled={!description}
+                    >
+                      <Typography.Paragraph>{description}</Typography.Paragraph>
+                    </Collapse.Panel>
+                  );
+                })}
+              </Collapse>
+            </Collapse.Panel>
+          </Collapse>
           <Card
             id="agenda"
             key="event-overview"
@@ -200,21 +272,22 @@ const ContentSection = ({ description, name, time, location }) => {
                   <Row>
                     <Col span={24}>
                       <Typography.Paragraph ellipsis={{ rows: 4, expandable: true }}>
-                        The LIN Center for Community Development (LIN) is a Vietnamese,
-                        non-governmental and not-for-profit organization under the Vietnam Union of
-                        Science and Technology Associations (Registration Number A-840, 29 June
-                        2009, by the Ministry of Science & Technology). Our mission is to help local
-                        NPOs, skilled volunteers, and donors to fulfill their potential as vehicles
-                        for sustainable development, poverty alleviation, and citizen participation
-                        in Vietnam. LIN works with individuals and organizations across all sectors,
-                        including: • Vietnamese not-for-profit organizations (NPOs) who are looking
-                        for financial, technical and human resources to improve their work; •
-                        Individual and corporations looking to engage in philanthropy; • Individual
-                        and Corporations looking to strengthen community engagement programs in
-                        Vietnam; • International non-governmental organizations who are looking for
-                        local partners in the South of Vietnam, and; • Researchers and individuals
-                        studying community development and the role of not-for-profit organizations
-                        in Vietnam
+                        Glints là nền tảng tuyển dụng đến từ Singapore với sứ mạng rút ngắn khoảng
+                        cách giữa đào tạo và nhu cầu doanh nghiệp bằng nền tảng tuyển dụng cho nhân
+                        sự trẻ. Chúng tôi hỗ trợ các tài năng trẻ khám phá đam mê nghề nghiệp và
+                        phát triển kỹ năng chuyên môn, đồng thời trao quyền cho doanh nghiệp trong
+                        việc thu hút nhân tài phù hợp với chiến lược nhân sự công ty. Website:
+                        https://glints.vn Về Glints ExpertClass Glints ExpertClass là chuỗi khoá học
+                        nhằm kết nối bạn học với các chuyên gia trong các lĩnh vực Marketing, Sales,
+                        Human Resources, Accounting, Data Science, Technology... đến từ Đông Nam Á.
+                        Tiếp nối thành công trên thị trường Indonesia với hơn 3000 học viên, 70 diễn
+                        giả khách mời và 200 khoá học, Glints ExpertClass nay đã có mặt tại Việt
+                        Nam. Với các buổi chia sẻ chuyên sâu, workshop và các phiên hỏi-đáp trực
+                        tiếp, chuỗi sự kiện Glints ExpertClass hứa hẹn sẽ mang lại cho bạn kiến thức
+                        thực tiễn và đưa chuyên môn nghiệp vụ của bạn lên một tầm cao mới. Cùng rút
+                        ngắn khoảng cách với các chuyên gia, những nhà lãnh đạo từ các công ty hàng
+                        đầu Đông Nam Á bằng các buổi sự kiện "all-in-one" của Glints ExpertClass
+                        ngay hôm nay!
                       </Typography.Paragraph>
                     </Col>
                     <Col span={24}>
@@ -284,7 +357,7 @@ const ContentSection = ({ description, name, time, location }) => {
               <Affix offsetTop={120} className="event-small-info">
                 <Card>
                   <div className="event-header-title">
-                    <h1 style={{ fontSize: '18px' }}>{name}</h1>
+                    <h1 style={{ fontSize: '18px', margin: 0 }}>{name}</h1>
                   </div>
                   <Divider />
                   <Row justify="center" gutter={[16, 16]} align="middle" style={{ margin: '0' }}>
@@ -294,10 +367,7 @@ const ContentSection = ({ description, name, time, location }) => {
                           <ClockCircleTwoTone />
                         </Col>
                         <Col span={22}>
-                          <p className="event-info">
-                            {moment(time).format('dddd, DD-M-YYYY')}{' '}
-                            <Tag color="processing">In-coming</Tag>
-                          </p>
+                          <p className="event-info">{formatDate(time)}</p>
                         </Col>
                       </Row>
                       <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
@@ -306,6 +376,9 @@ const ContentSection = ({ description, name, time, location }) => {
                         </Col>
                         <Col span={22}>
                           <p className="event-info">{location}</p>
+                          <Typography.Paragraph type="secondary" className="event-info">
+                            {address}
+                          </Typography.Paragraph>
                         </Col>
                       </Row>
                     </Col>

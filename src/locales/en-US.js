@@ -33,6 +33,7 @@ export default {
   'event-detail.feature-title': 'Features',
   'event-detail.working-hour': 'Working Hour',
   'event-detail.agenda': 'Agenda',
+  'event-detail.ticket-info': 'Ticket',
   'event-detail.contact': 'Contact',
   'event-detail.contact.address': 'Address',
   'event-detail.contact.mail': 'Mail',

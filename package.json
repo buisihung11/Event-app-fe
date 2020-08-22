@@ -23,7 +23,8 @@
     "rc-scroll-anim": "^2.7.4",
     "rc-tween-one": "^2.7.3",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-image": "^4.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

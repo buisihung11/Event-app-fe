@@ -8,11 +8,11 @@ import {
 } from '@ant-design/icons';
 import { formatMessage } from 'umi-plugin-locale';
 
-import moment from 'moment';
+import { formatDate } from '../../../utils';
 
 const { useBreakpoint } = Grid;
 
-const HeaderSection = ({ name, time, location }) => {
+const HeaderSection = ({ name, time, location, address }) => {
   const { md } = useBreakpoint();
 
   return (
@@ -35,22 +35,37 @@ const HeaderSection = ({ name, time, location }) => {
               <h1>{name}</h1>
             </div>
           )}
-          <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
+          <Row
+            gutter={16}
+            className="event-info-wrapper"
+            // justify="space-between"
+            style={{ width: '100%' }}
+          >
             <Col span={1}>
               <ClockCircleTwoTone />
             </Col>
-            <Col span={22}>
+            <Col span={22} style={{ paddingLeft: '10px' }}>
               <p className="event-info">
-                {moment(time).format('dddd, DD-M-YYYY')} <Tag color="processing">In-coming</Tag>
+                {formatDate(time)} <Tag color="processing">In-coming</Tag>
               </p>
             </Col>
           </Row>
-          <Row gutter={16} className="event-info-wrapper" style={{ width: '100%' }}>
+          <Row
+            gutter={16}
+            className="event-info-wrapper"
+            // justify="space-between"
+            style={{ width: '100%' }}
+          >
             <Col span={1}>
               <CompassTwoTone />
             </Col>
-            <Col span={22}>
-              <p className="event-info">{location}</p>
+            <Col span={22} style={{ paddingLeft: '10px' }}>
+              <p strong className="event-info">
+                {location}
+              </p>
+              <Typography.Paragraph type="secondary" className="event-info">
+                {address}
+              </Typography.Paragraph>
             </Col>
           </Row>
         </Col>
@@ -89,6 +104,9 @@ const HeaderSection = ({ name, time, location }) => {
           >
             <Menu.Item key="mail">
               <a href="#about">{formatMessage({ id: 'event-detail.about-title' })}</a>
+            </Menu.Item>
+            <Menu.Item key="ticket-info">
+              <a href="#ticket-info">{formatMessage({ id: 'event-detail.ticket-info' })}</a>
             </Menu.Item>
             <Menu.Item key="app">
               <a href="#agenda">{formatMessage({ id: 'event-detail.agenda' })}</a>

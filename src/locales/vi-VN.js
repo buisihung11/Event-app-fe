@@ -33,6 +33,7 @@ export default {
   'event-detail.feature-title': 'Tiện ích',
   'event-detail.working-hour': 'Thời gian',
   'event-detail.agenda': 'Lịch biểu',
+  'event-detail.ticket-info': 'Thông tin vé',
   'event-detail.contact': 'Liên hệ',
   'event-detail.contact.address': 'Địa chỉ',
   'event-detail.contact.mail': 'Mail',

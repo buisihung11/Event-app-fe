@@ -5,17 +5,26 @@ import { Layout } from 'antd';
 import FilterDrawer from './FilterDrawer';
 
 const fakeEvents = [];
-for (let i = 1; i <= 20; i++) {
+for (let i = 1; i <= 9; i++) {
   fakeEvents.push({
     name: 'Sự kiện ' + i,
     location: 'Dongo 184 Crono, Canada',
-    price: i*20,
+    price: i * 20,
     imageURL:
       'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     description:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa',
   });
 }
+fakeEvents.push({
+  name: 'Sự kiện cuoi',
+  location: 'Dongo 184 Crono, Canada',
+  price: 10,
+  imageURL:
+    'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+  description:
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa',
+});
 
 class EventList extends Component {
   constructor(props) {
@@ -29,7 +38,7 @@ class EventList extends Component {
     };
   }
 
-  onTimeFilterChange = e => {
+  onTimeFilterChange = (e) => {
     this.setState({
       timeFilterValue: e.target.value,
     });
