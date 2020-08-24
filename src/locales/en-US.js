@@ -4,6 +4,7 @@ export default {
   'events.list.filters': 'Filters',
   'header.menu.events': 'Events',
   'events.list.search': 'Search for more events',
+  'events.list.category': 'Category',
   'events.list.filters.location': 'Location',
   'events.list.filters.location.city': 'City',
   'events.list.filters.category': 'Category',
