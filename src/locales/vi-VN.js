@@ -1,9 +1,14 @@
 export default {
+  'button.more':'Xem thêm',
   'index.start': 'Getting Started',
   'header.menu.home': 'Trang chủ',
   'header.menu.events': 'Sự kiện',
   'events.list.filters': 'Bộ lọc',
   'events.list.search': 'Tìm kiếm sự kiện',
+  
+  'events.list.category': 'Thể loại',
+  'events.list.featured-event': 'Sự kiện nổi bật',
+  'events.list.new-event': 'Sự kiện mới',
   'events.list.filters.location': 'Địa điểm',
   'events.list.filters.location.city': 'Thành phố',
   'events.list.filters.category': 'Thể loại',

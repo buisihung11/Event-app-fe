@@ -1,0 +1,39 @@
+@event-category: event-category;
+
+.@{event-category}-wrapper {
+
+    padding: 2rem 3rem;
+    
+    .site-layout{
+      background-color:#fff;
+      padding:15px 10px ;
+    }
+    .@{event-category}-sider{
+        background: inherit;
+        margin-right: 20px;
+    }
+    .sider-header{
+      margin-top: 10px;
+    }
+    .sider-filters{
+      margin-bottom: 10px;
+    }
+    .carousel-item {
+      height: 350px ;
+      color: #fff;
+      line-height: 160px;
+      text-align: center;
+      background: rgb(143, 142, 142);
+    }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .@{event-category}-wrapper {
+    padding: 1rem 1rem;
+    .@{event-category}-sider{
+        margin-right: 0;
+    }
+    
+  }
+}
