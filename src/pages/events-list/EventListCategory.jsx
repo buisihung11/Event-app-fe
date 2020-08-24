@@ -1,10 +1,10 @@
 import { Component } from 'react';
-import { Divider, Layout , Anchor } from 'antd';
+import { Divider, Layout , Menu ,Affix} from 'antd';
 
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'umi-plugin-react/locale';
 const { Sider } = Layout;
-const { Link }=Anchor;
+const { SubMenu } = Menu;
 class EventListCategory extends Component {
   render = () => (
     <Sider
@@ -19,11 +19,17 @@ class EventListCategory extends Component {
       </h1>
       
       <Divider />
-      <Anchor affix={false} className='category'>
-      {this.props.category.map(item => 
-        (<Link key={`category-${item.link}`} className='category-item'  title={item.name} href={`/events?category=${item.link}`}/>)
-        )}
-      </Anchor>
+      <Menu className='category' mode="vertical">
+        {this.props.category.map(item=>(
+          <Menu.Item className='category-item' key={'link'+item.link}>
+          <a href={'events?category='+item.link} rel="noopener noreferrer">
+            {item.name}
+          </a>
+        </Menu.Item>
+        ))}
+        
+      </Menu>
+      
     </Sider>
   );
 }

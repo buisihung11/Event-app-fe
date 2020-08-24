@@ -10,7 +10,8 @@ for (let i = 1; i < 10; i++) {
 }
 class CategoryFilter extends Component {
   render = () => (
-    <Select size='large' la defaultValue={formatMessage({id:'events.list.filters.category'})} style={{width:'100%'}}>
+
+<Select size='large' mode='tags' la defaultValue={formatMessage({id:'events.list.filters.category'})} style={{width:'100%'}}>
           {children}
     </Select>
   );
