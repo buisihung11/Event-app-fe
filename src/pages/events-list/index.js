@@ -2,8 +2,9 @@
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
 
-import './less/index.less';
-import EventList from './EventList'
+import EventListLayout from './EventListLayout'
+import EventCategoryLayout from '../event-category/EventCategoryLayout'
+
 let isMobile;
 enquireScreen((b) => {
   isMobile = b;
@@ -16,6 +17,7 @@ export default class EventsList extends React.Component {
     this.state = {
       isMobile,
       show: !location.port, // 如果不是 dva 2.0 请删除
+      isFrontPage: true
     };
   }
 
@@ -31,12 +33,29 @@ export default class EventsList extends React.Component {
         });
       }, 500);
     }
+    
   }
-
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if ((nextProps.location.query.category ===undefined) !== prevState.isFrontPage){
+      const category = nextProps.location.query.category
+      return {
+        isFrontPage:category===undefined
+       }
+   }
+   return null;
+ }
   render() {
-    const children = [
-      <EventList className="event-list-wrapper" isMobile={this.state.isMobile} />
-    ];
+    let children=null;
+    if(this.state.isFrontPage){
+      children= [
+        <EventListLayout className="event-list-wrapper" isMobile={this.state.isMobile} />
+      ];
+    }else{
+      children= [
+        <EventCategoryLayout className="event-list-wrapper" isMobile={this.state.isMobile} />
+      ];
+    }
+     
     return this.state.show && children;
   }
 }
