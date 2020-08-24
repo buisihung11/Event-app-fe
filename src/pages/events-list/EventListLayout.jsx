@@ -44,15 +44,6 @@ fakeFeaturedEvents.push({
   description:
     'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa',
 });
-const fakeCategoryWithLink = [
-  {name:'Phim ảnh',link:'phim-anh'},
-  {name:'Thể thao',link:'the-thao'},
-  {name:'Du lịch',link:'du-lich'},
-  {name:'Khóa học',link:'khoa-hoc'},
-  {name:'Nhạc sống',link:'nhac-song'},
-  {name:'Nightlife',link:'nightlife'},
-  {name:'Sân khấu - Nghệ thuật',link:'san-khau-nghe-thuat'},
-];
 const fakeCarouselLinks=[
   'https://freestocks.org/fs/wp-content/uploads/2016/08/forest_wedding_photoshoot-1000x667.jpg',
   'https://freestocks.org/fs/wp-content/uploads/2018/08/helium_cartoon_ballons_closeup-1000x667.jpg',
@@ -64,58 +55,22 @@ class EventList extends Component {
     this.state = {
       featuredEvents: fakeFeaturedEvents,
       newEvents: fakeNewEvents,
-      timeFilterValue: 'today',
-      currentPage: 1,
-      totalPages: 30,
-      isDrawerShown: false,
-      category:fakeCategoryWithLink,
-      carouselContent:fakeCarouselLinks
+      carouselContent:fakeCarouselLinks,
+      category:this.props.category
     };
   }
 
-  onTimeFilterChange = (e) => {
-    this.setState({
-      timeFilterValue: e.target.value,
-    });
-  };
-  onDatePickerChange = (date, dateString) => {
-    this.setState({
-      timeFilterValue: dateString,
-    });
-  };
-  onPaginationChange = (page, pageSize) => {
-    this.setState({
-      currentPage: page,
-    });
-  };
-  triggerDrawer = () => {
-    this.setState({
-      isDrawerShown: true,
-    });
-  };
-  onDrawerClose = () => {
-    this.setState({
-      isDrawerShown: false,
-    });
-  };
   onCarouselChange(a, b, c) {
   }
   render = () => (
     <Layout className="event-list-wrapper">
       <EventListCategory
         category={this.state.category}
-        timeFilterValue={this.state.timeFilterValue}
-        onTimeFilterChange={this.onTimeFilterChange}
-        onDatePickerChange={this.onDatePickerChange}
       />
       <EventFrontpageContent
         featuredEvents={this.state.featuredEvents}
         newEvents={this.state.newEvents}
-        currentPage={this.state.currentPage}
-        totalPages={this.state.totalPages}
         isMobile={this.props.isMobile}
-        triggerDrawer={this.triggerDrawer}
-        onPaginationChange={this.onPaginationChange}
         onCarouselChange={this.onCarouselChange}
         carouselContent={this.state.carouselContent}
       />

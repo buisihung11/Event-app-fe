@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Divider, Button, Typography, Row, Col } from 'antd';
 import EventItem from '../../components/event-item';
 import { FormattedMessage } from 'umi-plugin-react/locale';
+import { ExpandOutlined } from '@ant-design/icons';
 const { Text, Title } = Typography;
 class EventsSection extends Component {
   render = () => (
@@ -9,7 +10,7 @@ class EventsSection extends Component {
       <Col span={24}>
         <Row style={{ width: '100%', margin: '0', textAlign: 'center' }} justify="center">
           <Col lg={8} md={10} sm={12} xs={20}>
-            <Title>{this.props.title}</Title>
+            <Title style={{color:'#F9A619'}}>{this.props.title}</Title>
           </Col>
         </Row>
         <Row
@@ -48,7 +49,8 @@ class EventsSection extends Component {
         </Col>
 
         <Col flex={this.props.isMobile ? '150px' : '100px'} style={{ textAlign: 'center' }}>
-          <Button type="primary" shape="round" size="large">
+          <Button  shape="round" size="large">
+          <ExpandOutlined />
             <Text>
               <FormattedMessage id="button.more" />
             </Text>
