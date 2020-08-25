@@ -44,23 +44,23 @@ export const Nav30DataSource = {
           ],
         },
       },
-      {
-        name: 'item2',
-        className: 'header3-item',
-        children: {
-          href: '#',
-          children: [
-            {
-              children: (
-                <span>
-                  <p>Page 2</p>
-                </span>
-              ),
-              name: 'text',
-            },
-          ],
-        },
-      },
+      // {
+      //   name: 'item2',
+      //   className: 'header3-item',
+      //   children: {
+      //     href: '#',
+      //     children: [
+      //       {
+      //         children: (
+      //           <span>
+      //             <p>Page 2</p>
+      //           </span>
+      //         ),
+      //         name: 'text',
+      //       },
+      //     ],
+      //   },
+      // },
       {
         name: 'item3',
         className: 'header3-item',
@@ -70,7 +70,7 @@ export const Nav30DataSource = {
             {
               children: (
                 <span>
-                  <p>Login</p>
+                  <p>Đăng nhập</p>
                 </span>
               ),
               name: 'text',

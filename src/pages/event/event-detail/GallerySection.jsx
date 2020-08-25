@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'antd';
+import { Carousel, Grid } from 'antd';
 import useMobile from '../../../hooks/useMobile';
 import Image from '../../../components/Image/Image';
 
@@ -17,17 +17,19 @@ const carouselSettings = {
   centerPadding: '60px',
 };
 
+const { useBreakpoint } = Grid;
+
 const GallerySection = () => {
   const isMobile = useMobile();
   const [settings, setSettings] = useState(carouselSettings);
-
+  const { md } = useBreakpoint();
   useEffect(() => {
     setSettings({
       ...carouselSettings,
-      slidesToShow: isMobile ? 1 : carouselSettings.slidesToShow,
-      slidesToScroll: isMobile ? 1 : carouselSettings.slidesToScroll,
+      slidesToShow: !md ? 1 : carouselSettings.slidesToShow,
+      slidesToScroll: !md ? 1 : carouselSettings.slidesToScroll,
     });
-  }, [isMobile]);
+  }, [md]);
 
   return (
     <section className="event-gallery">

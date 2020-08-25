@@ -9,6 +9,7 @@ import {
 import { formatMessage } from 'umi-plugin-locale';
 
 import { formatDate } from '../../../utils';
+import { BuyBtn } from './EventDetail';
 
 const { useBreakpoint } = Grid;
 
@@ -72,7 +73,7 @@ const HeaderSection = ({ name, time, location, address }) => {
         <Col md={{ order: 2, span: 8 }} xs={{ order: 1, span: 24 }}>
           <div className="event-header-right" style={{}}>
             <div style={{ marginBottom: '15px' }}>
-              <Button
+              <BuyBtn
                 type="primary"
                 danger
                 style={{ width: '100%' }}
@@ -80,7 +81,7 @@ const HeaderSection = ({ name, time, location, address }) => {
                 // icon={<NotificationOutlined />}
               >
                 {formatMessage({ id: 'event-detail.buy-ticket' })}
-              </Button>
+              </BuyBtn>
             </div>
             <Button size="large" style={{ width: '50%' }} icon={<FacebookOutlined />}>
               {formatMessage({ id: 'event-detail.join-btn' })}
