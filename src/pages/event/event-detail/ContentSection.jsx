@@ -29,12 +29,14 @@ import {
 } from 'antd';
 import useMobile from '../../../hooks/useMobile';
 import { formatDate } from '../../../utils';
+import Image from '../../../components/Image/Image';
+import { BuyBtn } from './EventDetail';
 
 const { useBreakpoint } = Grid;
+const { Title, Text, Paragraph } = Typography;
 
 const ContentSection = ({ description, name, time, location, tickets, address }) => {
   const [tabKey, setTabKey] = useState('workingHour');
-  const isMobile = useMobile();
   const { lg, md, sm } = useBreakpoint();
 
   const tabList = [
@@ -48,89 +50,82 @@ const ContentSection = ({ description, name, time, location, tickets, address })
     },
   ];
 
+  const buyBtn = <BuyBtn />;
+
   const tabContents = {
     workingHour: (
       <section>
-        {/* <Typography.Title level={4}>Opening Hours</Typography.Title> */}
+        {/* <Title level={4}>Opening Hours</Title> */}
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.monday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.monday' })}</Title>
+
+            <Paragraph type="secondary">08.00am - 05.00pm</Paragraph>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
-            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
-              Mua vé ngay
-            </Button>
+            {buyBtn}
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.tueday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.tueday' })}</Title>
+
+            <Paragraph type="secondary">08.00am - 05.00pm</Paragraph>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
-            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
-              Mua vé ngay
-            </Button>
+            {buyBtn}
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.wednesday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.wednesday' })}</Title>
+
+            <Paragraph type="secondary">08.00am - 05.00pm</Paragraph>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
-            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
-              Mua vé ngay
-            </Button>
+            {buyBtn}
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.thrusday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.thrusday' })}</Title>
+
+            <Paragraph type="secondary">08.00am - 05.00pm</Paragraph>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
-            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
-              Mua vé ngay
-            </Button>
+            {buyBtn}
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.friday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.friday' })}</Title>
+
+            <Paragraph type="secondary">08.00am - 05.00pm</Paragraph>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="secondary">08.00am - 05.00pm</Typography.Paragraph>
-            <Button danger type="primary" block style={{ maxWidth: '150px' }}>
-              Mua vé ngay
-            </Button>
+            {buyBtn}
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.saturday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.saturday' })}</Title>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="warning">
-              {formatMessage({ id: 'global.closed' })}
-            </Typography.Paragraph>
+            <Paragraph type="warning">{formatMessage({ id: 'global.closed' })}</Paragraph>
           </Col>
         </Row>
         <Divider />
         <Row justify="space-between" align="middle">
           <Col xs={24} flex={1}>
-            {formatMessage({ id: 'global.timetable.sunday' })}
+            <Title level={4}>{formatMessage({ id: 'global.timetable.sunday' })}</Title>
           </Col>
           <Col span={10} style={{ textAlign: 'right' }}>
-            <Typography.Paragraph type="warning">
-              {formatMessage({ id: 'global.closed' })}
-            </Typography.Paragraph>
+            <Paragraph type="warning">{formatMessage({ id: 'global.closed' })}</Paragraph>
           </Col>
         </Row>
       </section>
@@ -156,42 +151,34 @@ const ContentSection = ({ description, name, time, location, tickets, address })
               key="about"
               id="about"
               header={
-                <Typography.Title style={{ textTransform: 'uppercase' }} level={3}>
+                <Title style={{ textTransform: 'uppercase' }} level={3}>
                   {formatMessage({ id: 'event-detail.about-title' })}
-                </Typography.Title>
+                </Title>
               }
             >
               <Space direction="vertical">
                 <section className="event-info">
-                  <Typography.Paragraph type="secondary" ellipsis={{ rows: 4, expandable: true }}>
+                  <Paragraph type="secondary" ellipsis={{ rows: 4, expandable: true }}>
                     {description}
-                  </Typography.Paragraph>
+                  </Paragraph>
                 </section>
-                <Typography.Title level={4}>
-                  {formatMessage({ id: 'event-detail.hoster-title' })}
-                </Typography.Title>
+                <Title level={4}>{formatMessage({ id: 'event-detail.hoster-title' })}</Title>
                 <div>
-                  <Typography.Text>David Smith</Typography.Text>
-                  <Typography.Paragraph type="secondary">
-                    Business Speaker, Investor, Author.
-                  </Typography.Paragraph>
+                  <Text>David Smith</Text>
+                  <Paragraph type="secondary">Business Speaker, Investor, Author.</Paragraph>
                 </div>
                 <div>
-                  <Typography.Text>Maria Rodriguez</Typography.Text>
-                  <Typography.Paragraph type="secondary">
-                    Innovation Speaker, Business Professor.
-                  </Typography.Paragraph>
+                  <Text>Maria Rodriguez</Text>
+                  <Paragraph type="secondary">Innovation Speaker, Business Professor.</Paragraph>
                 </div>
                 <Space direction="vertical">
-                  <Typography.Title level={4}>
-                    {formatMessage({ id: 'event-detail.feature-title' })}
-                  </Typography.Title>
-                  <Typography.Text>
+                  <Title level={4}>{formatMessage({ id: 'event-detail.feature-title' })}</Title>
+                  <Text>
                     <WifiOutlined /> Wifi
-                  </Typography.Text>
-                  <Typography.Text>
+                  </Text>
+                  <Text>
                     <UsergroupAddOutlined /> Meeting Spaces
-                  </Typography.Text>
+                  </Text>
                 </Space>
               </Space>
             </Collapse.Panel>
@@ -202,9 +189,9 @@ const ContentSection = ({ description, name, time, location, tickets, address })
               id="ticket-info"
               key="ticket-info"
               header={
-                <Typography.Title style={{ textTransform: 'uppercase' }} level={3}>
+                <Title style={{ textTransform: 'uppercase' }} level={3}>
                   {formatMessage({ id: 'event-detail.ticket-info' })}
-                </Typography.Title>
+                </Title>
               }
             >
               <Collapse accordion>
@@ -217,32 +204,32 @@ const ContentSection = ({ description, name, time, location, tickets, address })
                       justify="end"
                       size="small"
                     >
-                      <Typography.Text style={{ textAlign: 'right' }}>{price} VND</Typography.Text>
-                      <Typography.Text>
+                      <Text style={{ textAlign: 'right' }}>{price} VND</Text>
+                      <Text>
                         {!isAvailable && (
                           <Tag style={{ margin: 0 }} color="red">
                             Hết vé
                           </Tag>
                         )}
-                      </Typography.Text>
+                      </Text>
                     </Space>
                   );
-                  // if (!description) return <Typography.Title level={4}>{name}</Typography.Title>;
+                  // if (!description) return <Title level={4}>{name}</Title>;
                   return (
                     <Collapse.Panel
                       key={name}
                       header={
                         <div className="event-ticket-title">
-                          <Typography.Title level={4} style={{ display: 'inline-block' }}>
+                          <Title level={4} style={{ display: 'inline-block' }}>
                             {name}
-                          </Typography.Title>
+                          </Title>
                         </div>
                       }
                       extra={extra}
                       showArrow={false}
                       // disabled={!description}
                     >
-                      <Typography.Paragraph>{description}</Typography.Paragraph>
+                      <Paragraph>{description}</Paragraph>
                     </Collapse.Panel>
                   );
                 })}
@@ -265,104 +252,96 @@ const ContentSection = ({ description, name, time, location, tickets, address })
               key="organizer"
               style={{ width: '100%' }}
               header={
-                <Typography.Title style={{ textTransform: 'uppercase' }} level={3}>
+                <Title style={{ textTransform: 'uppercase' }} level={3}>
                   {formatMessage({ id: 'event-detail.organizer' })}
-                </Typography.Title>
+                </Title>
               }
             >
-              <Card.Meta
-                avatar={
-                  <Avatar
-                    size={!isMobile && 120}
+              <Row gutter={[16, 16]}>
+                <Col xs={24} md={7}>
+                  <Image
                     src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    style={{
+                      width: '100%',
+                      maxWidth: '350px',
+                      margin: '0 auto',
+                      display: 'block',
+                    }}
                   />
-                }
-                title="ABC Company"
-                description={
-                  <Row>
-                    <Col span={24}>
-                      <Typography.Paragraph ellipsis={{ rows: 4, expandable: true }}>
-                        Glints là nền tảng tuyển dụng đến từ Singapore với sứ mạng rút ngắn khoảng
-                        cách giữa đào tạo và nhu cầu doanh nghiệp bằng nền tảng tuyển dụng cho nhân
-                        sự trẻ. Chúng tôi hỗ trợ các tài năng trẻ khám phá đam mê nghề nghiệp và
-                        phát triển kỹ năng chuyên môn, đồng thời trao quyền cho doanh nghiệp trong
-                        việc thu hút nhân tài phù hợp với chiến lược nhân sự công ty. Website:
-                        https://glints.vn Về Glints ExpertClass Glints ExpertClass là chuỗi khoá học
-                        nhằm kết nối bạn học với các chuyên gia trong các lĩnh vực Marketing, Sales,
-                        Human Resources, Accounting, Data Science, Technology... đến từ Đông Nam Á.
-                        Tiếp nối thành công trên thị trường Indonesia với hơn 3000 học viên, 70 diễn
-                        giả khách mời và 200 khoá học, Glints ExpertClass nay đã có mặt tại Việt
-                        Nam. Với các buổi chia sẻ chuyên sâu, workshop và các phiên hỏi-đáp trực
-                        tiếp, chuỗi sự kiện Glints ExpertClass hứa hẹn sẽ mang lại cho bạn kiến thức
-                        thực tiễn và đưa chuyên môn nghiệp vụ của bạn lên một tầm cao mới. Cùng rút
-                        ngắn khoảng cách với các chuyên gia, những nhà lãnh đạo từ các công ty hàng
-                        đầu Đông Nam Á bằng các buổi sự kiện "all-in-one" của Glints ExpertClass
-                        ngay hôm nay!
-                      </Typography.Paragraph>
-                    </Col>
-                    <Col span={24}>
-                      <Card
-                        key="event-contact"
-                        className="event-small-info"
-                        title={formatMessage({ id: 'event-detail.contact' })}
-                      >
-                        <Row justify="space-between" align="bottom">
-                          <Col>{formatMessage({ id: 'event-detail.contact.address' })}:</Col>
-                          <Col>
-                            <Typography.Text type="secondary">Quan 9 HCMC</Typography.Text>
-                          </Col>
-                        </Row>
-                        <Divider />
-                        <Row justify="space-between">
-                          <Col>{formatMessage({ id: 'event-detail.contact.phone' })}:</Col>
-                          <Col>
-                            <Typography.Text type="secondary">(+84)123456791</Typography.Text>
-                          </Col>
-                        </Row>
-                        <Divider />
-                        <Row justify="space-between">
-                          <Col>{formatMessage({ id: 'event-detail.contact.mail' })}: </Col>
-                          <Col>
-                            <Typography.Text type="secondary">company@gmail.com</Typography.Text>
-                          </Col>
-                        </Row>
-                        <Divider />
-                        <Row justify="space-between">
-                          <Col>{formatMessage({ id: 'event-detail.contact.website' })}: </Col>
-                          <Col>
-                            <Typography.Text type="secondary">
-                              <a href="https://google.com" target="_blank">
-                                https://google.com
-                              </a>
-                            </Typography.Text>
-                          </Col>
-                        </Row>
-                        <Divider />
-                        <Space
-                          direction="horizontal"
-                          style={{ width: '100%', justifyContent: 'flex-end' }}
-                          align="end"
-                        >
-                          <FacebookOutlined style={{ color: 'blue', fontSize: '1.5rem' }} />
-                          <TwitterOutlined style={{ color: 'blueviolet', fontSize: '1.5rem' }} />
-                          <InstagramOutlined style={{ color: 'red', fontSize: '1.5rem' }} />
-                        </Space>
-                      </Card>
-                    </Col>
-                  </Row>
-                }
-              />
+                </Col>
+                <Col xs={24} md={17}>
+                  <Title level={4}>ABC Company</Title>
+                  <Paragraph ellipsis={{ rows: 4, expandable: true }}>
+                    Glints là nền tảng tuyển dụng đến từ Singapore với sứ mạng rút ngắn khoảng cách
+                    giữa đào tạo và nhu cầu doanh nghiệp bằng nền tảng tuyển dụng cho nhân sự trẻ.
+                    Chúng tôi hỗ trợ các tài năng trẻ khám phá đam mê nghề nghiệp và phát triển kỹ
+                    năng chuyên môn, đồng thời trao quyền cho doanh nghiệp trong việc thu hút nhân
+                    tài phù hợp với chiến lược nhân sự công ty. Website: https://glints.vn Về Glints
+                    ExpertClass Glints ExpertClass là chuỗi khoá học nhằm kết nối bạn học với các
+                    chuyên gia trong các lĩnh vực Marketing, Sales, Human Resources, Accounting,
+                    Data Science, Technology... đến từ Đông Nam Á. Tiếp nối thành công trên thị
+                    trường Indonesia với hơn 3000 học viên, 70 diễn giả khách mời và 200 khoá học,
+                    Glints ExpertClass nay đã có mặt tại Việt Nam. Với các buổi chia sẻ chuyên sâu,
+                    workshop và các phiên hỏi-đáp trực tiếp, chuỗi sự kiện Glints ExpertClass hứa
+                    hẹn sẽ mang lại cho bạn kiến thức thực tiễn và đưa chuyên môn nghiệp vụ của bạn
+                    lên một tầm cao mới. Cùng rút ngắn khoảng cách với các chuyên gia, những nhà
+                    lãnh đạo từ các công ty hàng đầu Đông Nam Á bằng các buổi sự kiện "all-in-one"
+                    của Glints ExpertClass ngay hôm nay!
+                  </Paragraph>
+                  <Card
+                    key="event-contact"
+                    className="event-small-info"
+                    title={formatMessage({ id: 'event-detail.contact' })}
+                  >
+                    <Row justify="space-between" align="bottom">
+                      <Col>{formatMessage({ id: 'event-detail.contact.address' })}:</Col>
+                      <Col>
+                        <Text type="secondary">Quan 9 HCMC</Text>
+                      </Col>
+                    </Row>
+                    <Divider />
+                    <Row justify="space-between">
+                      <Col>{formatMessage({ id: 'event-detail.contact.phone' })}:</Col>
+                      <Col>
+                        <Text type="secondary">(+84)123456791</Text>
+                      </Col>
+                    </Row>
+                    <Divider />
+                    <Row justify="space-between">
+                      <Col>{formatMessage({ id: 'event-detail.contact.mail' })}: </Col>
+                      <Col>
+                        <Text type="secondary">company@gmail.com</Text>
+                      </Col>
+                    </Row>
+                    <Divider />
+                    <Row justify="space-between">
+                      <Col>{formatMessage({ id: 'event-detail.contact.website' })}: </Col>
+                      <Col>
+                        <Text type="secondary">
+                          <a href="https://google.com" target="_blank">
+                            https://google.com
+                          </a>
+                        </Text>
+                      </Col>
+                    </Row>
+                    <Divider />
+                    <Space
+                      direction="horizontal"
+                      style={{ width: '100%', justifyContent: 'flex-end' }}
+                      align="end"
+                    >
+                      <FacebookOutlined style={{ color: 'blue', fontSize: '1.5rem' }} />
+                      <TwitterOutlined style={{ color: 'blueviolet', fontSize: '1.5rem' }} />
+                      <InstagramOutlined style={{ color: 'red', fontSize: '1.5rem' }} />
+                    </Space>
+                  </Card>
+                </Col>
+              </Row>
             </Collapse.Panel>
           </Collapse>
         </Col>
         <Col xs={24} lg={9}>
           <Space direction="vertical" size="middle" style={{ width: '100%' }}>
-            {/* <QueueAnim key="event-info-1" type={animType.queue} ease={['easeOutCubic', 'easeInCubic']} leaveReverse> */}
-            {/* {!isMobile && (
-                <Card key="event-location" className="event-location event-small-info">
-                  Map
-                </Card>
-              )} */}
             {lg && (
               <Affix offsetTop={120} className="event-small-info">
                 <Card>
@@ -386,9 +365,9 @@ const ContentSection = ({ description, name, time, location, tickets, address })
                         </Col>
                         <Col span={22}>
                           <p className="event-info">{location}</p>
-                          <Typography.Paragraph type="secondary" className="event-info">
+                          <Paragraph type="secondary" className="event-info">
                             {address}
-                          </Typography.Paragraph>
+                          </Paragraph>
                         </Col>
                       </Row>
                     </Col>
@@ -412,10 +391,10 @@ const ContentSection = ({ description, name, time, location, tickets, address })
 
             <Card
               key="event-similar"
-              className="event-small-info"
-              title={formatMessage({ id: 'event-detail.similar' })}
+              className={lg && 'event-small-info'}
+              title={<Title level={4}>{formatMessage({ id: 'event-detail.similar' })}</Title>}
             >
-              <Space direction="vertical">
+              <Space direction={lg ? 'vertical' : 'horizontal'}>
                 <div className="event-similar">
                   <img
                     src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
@@ -423,19 +402,19 @@ const ContentSection = ({ description, name, time, location, tickets, address })
                     className="event-similar-image"
                   />
                   <div className="event-similar-content">
-                    <Typography.Title
+                    <Title
                       ellipsis={{ rows: 2 }}
                       style={{ color: '#fff', height: '50%' }}
                       level={3}
                     >
                       The City Theater
-                    </Typography.Title>
-                    <Typography.Text
+                    </Title>
+                    <Text
                       ellipsis={{ rows: 2 }}
                       style={{ color: '#fff', height: '50%', zIndex: 2 }}
                     >
                       155 1st Avenue, New York
-                    </Typography.Text>
+                    </Text>
                   </div>
                 </div>
                 <div className="event-similar">
@@ -445,19 +424,19 @@ const ContentSection = ({ description, name, time, location, tickets, address })
                     className="event-similar-image"
                   />
                   <div className="event-similar-content">
-                    <Typography.Title
+                    <Title
                       ellipsis={{ rows: 2 }}
                       style={{ color: '#fff', height: '50%' }}
                       level={3}
                     >
                       The City Theater The City Theater The City Theater The City Theater
-                    </Typography.Title>
-                    <Typography.Text
+                    </Title>
+                    <Text
                       ellipsis={{ rows: 2 }}
                       style={{ color: '#fff', height: '50%', zIndex: 2 }}
                     >
                       155 1st Avenue, New York
-                    </Typography.Text>
+                    </Text>
                   </div>
                 </div>
               </Space>
