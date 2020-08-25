@@ -394,52 +394,56 @@ const ContentSection = ({ description, name, time, location, tickets, address })
               className={lg && 'event-small-info'}
               title={<Title level={4}>{formatMessage({ id: 'event-detail.similar' })}</Title>}
             >
-              <Space direction={lg ? 'vertical' : 'horizontal'}>
-                <div className="event-similar">
-                  <img
-                    src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-                    alt="Event"
-                    className="event-similar-image"
-                  />
-                  <div className="event-similar-content">
-                    <Title
-                      ellipsis={{ rows: 2 }}
-                      style={{ color: '#fff', height: '50%' }}
-                      level={3}
-                    >
-                      The City Theater
-                    </Title>
-                    <Text
-                      ellipsis={{ rows: 2 }}
-                      style={{ color: '#fff', height: '50%', zIndex: 2 }}
-                    >
-                      155 1st Avenue, New York
-                    </Text>
+              <Row gutter={[8, 8]}>
+                <Col xs={24} md={12} lg={24}>
+                  <div className="event-similar">
+                    <img
+                      src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                      alt="Event"
+                      className="event-similar-image"
+                    />
+                    <div className="event-similar-content">
+                      <Title
+                        ellipsis={{ rows: 2 }}
+                        style={{ color: '#fff', height: '50%' }}
+                        level={3}
+                      >
+                        The City Theater
+                      </Title>
+                      <Text
+                        ellipsis={{ rows: 2 }}
+                        style={{ color: '#fff', height: '50%', zIndex: 2 }}
+                      >
+                        155 1st Avenue, New York
+                      </Text>
+                    </div>
                   </div>
-                </div>
-                <div className="event-similar">
-                  <img
-                    src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-                    alt="Event"
-                    className="event-similar-image"
-                  />
-                  <div className="event-similar-content">
-                    <Title
-                      ellipsis={{ rows: 2 }}
-                      style={{ color: '#fff', height: '50%' }}
-                      level={3}
-                    >
-                      The City Theater The City Theater The City Theater The City Theater
-                    </Title>
-                    <Text
-                      ellipsis={{ rows: 2 }}
-                      style={{ color: '#fff', height: '50%', zIndex: 2 }}
-                    >
-                      155 1st Avenue, New York
-                    </Text>
+                </Col>
+                <Col xs={24} md={12} lg={24}>
+                  <div className="event-similar">
+                    <img
+                      src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                      alt="Event"
+                      className="event-similar-image"
+                    />
+                    <div className="event-similar-content">
+                      <Title
+                        ellipsis={{ rows: 2 }}
+                        style={{ color: '#fff', height: '50%' }}
+                        level={3}
+                      >
+                        The City Theater
+                      </Title>
+                      <Text
+                        ellipsis={{ rows: 2 }}
+                        style={{ color: '#fff', height: '50%', zIndex: 2 }}
+                      >
+                        155 1st Avenue, New York
+                      </Text>
+                    </div>
                   </div>
-                </div>
-              </Space>
+                </Col>
+              </Row>
             </Card>
             {/* </QueueAnim> */}
           </Space>
