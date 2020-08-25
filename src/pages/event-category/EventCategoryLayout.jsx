@@ -4,8 +4,9 @@ import EventListSider from './EventListSider';
 import { Layout } from 'antd';
 import FilterDrawer from './FilterDrawer';
 
+import './less/index.less';
 const fakeEvents = [];
-for (let i = 1; i <= 9; i++) {
+for (let i = 1; i <= 11; i++) {
   fakeEvents.push({
     name: 'Sự kiện ' + i,
     location: 'Dongo 184 Crono, Canada',
@@ -26,7 +27,7 @@ fakeEvents.push({
     'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa',
 });
 
-class EventList extends Component {
+class EventCategoryLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,6 +37,7 @@ class EventList extends Component {
       totalPages: 30,
       isDrawerShown: false,
     };
+    
   }
 
   onTimeFilterChange = (e) => {
@@ -64,7 +66,7 @@ class EventList extends Component {
     });
   };
   render = () => (
-    <Layout className="event-list-wrapper">
+    <Layout className="event-category-wrapper">
       <FilterDrawer
         isDrawerShown={this.state.isDrawerShown}
         timeFilterValue={this.state.timeFilterValue}
@@ -74,6 +76,7 @@ class EventList extends Component {
         isMobile={this.props.isMobile}
       />
       <EventListSider
+        isMobile={this.props.isMobile}
         timeFilterValue={this.state.timeFilterValue}
         onTimeFilterChange={this.onTimeFilterChange}
         onDatePickerChange={this.onDatePickerChange}
@@ -89,4 +92,4 @@ class EventList extends Component {
     </Layout>
   );
 }
-export default EventList;
+export default EventCategoryLayout;

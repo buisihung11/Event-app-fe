@@ -8,13 +8,13 @@ class Content extends Component {
   render = () => (
     <Layout className="site-layout">
       <Row style={{ width: '100%', margin: '0' }} justify="center">
-        <Col xs={4} sm={4} md={2} lg={0} style={{ marginBottom: '10px' }}>
+        <Col flex={this.props.isMobile?'30px':'0'} style={{ marginBottom: '10px' }}>
           
       <Button hidden={!this.props.isMobile} style={{width:'100%', height:'100%'}} type="default" onClick={this.props.triggerDrawer}>
             <FilterOutlined />
       </Button>
         </Col>
-        <Col xs={20} sm={20} md={22} lg={24} style={{ marginBottom: '10px' }}>
+        <Col flex="auto" style={{ marginBottom: '10px' }}>
       
           <Input size="large" placeholder={formatMessage({id:'events.list.search'})} prefix={<SearchOutlined />} />
         </Col>
