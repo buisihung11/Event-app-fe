@@ -4,7 +4,7 @@ import './index.less';
 import HeaderSection from './HeaderSection';
 import GallerySection from './GallerySection';
 import ContentSection from './ContentSection';
-import { Skeleton } from 'antd';
+import { Skeleton, Button, Modal, Typography } from 'antd';
 // import CommentSection from './CommentSection';
 
 const EventDetail = (props) => {
@@ -20,7 +20,7 @@ const EventDetail = (props) => {
       'https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.0-9/109228393_1721419681330083_8289757739294266576_n.png?_nc_cat=108&_nc_sid=730e14&_nc_ohc=kJ1wlKlftDgAX_eQQwE&_nc_ht=scontent.fsgn5-5.fna&oh=893db861ef7bab72a3f6708806554426&oe=5F604201',
     name: 'Triển lãm Quốc tế Nguồn cung ứng Sản phẩm Cao cấp - VIPREMIUM 2020',
     channel: 'Solution Network',
-    time: '12-12-2020 11:00 AM',
+    time: '12/12/2020 11:00 AM',
     location: 'Toa nha Landmark Quan BT HCM',
     address: '799 Nguyễn Văn Linh, Quận 7, Thành Phố Hồ Chí Minh',
     description: `TRIỂN LÃM QUỐC TẾ PHIM VÀ CÔNG NGHỆ TRUYỀN HÌNH VIỆT NAM LẦN THỨ 8 – TELEFILM 2020
@@ -67,9 +67,7 @@ const EventDetail = (props) => {
   });
 
   // TODO
-  // 1. Them phan thong tin ve
-  // 2. Sua EventItem
-  // 3. Sua trang Home
+  // 1. Them Category
 
   return (
     <div
@@ -93,6 +91,35 @@ const EventDetail = (props) => {
         tickets={tickets}
       />
     </div>
+  );
+};
+
+export const BuyBtn = (props) => {
+  const handleBuy = () => {
+    Modal.info({
+      title: 'Thông tin cách mua vé',
+      centered: true,
+      content: (
+        <div>
+          <Typography.Paragraph>
+            Vui lòng chuyển khoản vào số tài khoản sau: 0010101011
+          </Typography.Paragraph>
+        </div>
+      ),
+      onOk() {},
+    });
+  };
+  return (
+    <Button
+      danger
+      type="primary"
+      onClick={handleBuy}
+      block
+      style={{ maxWidth: '150px' }}
+      {...props}
+    >
+      Mua vé ngay
+    </Button>
   );
 };
 
