@@ -373,9 +373,9 @@ const ContentSection = ({ description, name, time, location, tickets, address })
                     </Col>
                     <Col span={24}>
                       <div style={{ marginBottom: '15px' }}>
-                        <Button type="primary" danger style={{ width: '100%' }}>
+                        <BuyBtn type="primary" danger style={{ width: '100%' }}>
                           {formatMessage({ id: 'event-detail.buy-ticket' })}
-                        </Button>
+                        </BuyBtn>
                       </div>
                       <Button style={{ width: '50%' }} icon={<FacebookOutlined />}>
                         {formatMessage({ id: 'event-detail.join-btn' })}
