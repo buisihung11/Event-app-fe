@@ -23,7 +23,7 @@ class EventListCategory extends Component {
         {this.props.category.map(item=>(
           <Menu.Item className='category-item' key={'link'+item.link}>
           <a href={'events?category='+item.link} rel="noopener noreferrer">
-            {item.name}
+            {item.icon}  {item.name}
           </a>
         </Menu.Item>
         ))}

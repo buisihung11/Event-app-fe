@@ -5,7 +5,7 @@
     padding: .75rem 3rem;
     .site-layout{
       background-color:#fff;
-      padding: 15px 30px 50px 30px;
+      padding: 15px 15px 50px 15px;
     }
     .@{event-list}-sider{
         background: inherit;
@@ -52,14 +52,42 @@
       width: 100%;
       height: 100%;
     }
+    .section-title{
+
+    }
 }
 
+@media screen and (max-width: 1024px) {
+  .@{event-list}-wrapper {
+    
+    .section-title{
+      font-size: 32px;
+    }
+    
+  }
+}
 @media screen and (max-width: 768px) {
   .@{event-list}-wrapper {
+    .site-layout{
+      
+      padding: 15px 5px 50px 5px;
+    }
     padding: 1rem 1rem;
     .@{event-list}-sider{
         margin-right: 0;
     }
     
+    .section-title{
+      font-size: 28px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .@{event-list}-wrapper {
+    padding: 20px 0 0 0 ;
+    .section-title{
+      font-size: 28px;
+    }
   }
 }
