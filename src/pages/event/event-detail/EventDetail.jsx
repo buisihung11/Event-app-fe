@@ -81,7 +81,7 @@ const EventDetail = (props) => {
         {/* <img src={banner} alt="Event Banner" /> */}
       </section>
       <HeaderSection name={name} time={time} location={location} address={address} />
-      {/* <GallerySection /> */}
+      <GallerySection />
       <ContentSection
         description={description}
         name={name}

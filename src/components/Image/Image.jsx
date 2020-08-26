@@ -1,7 +1,7 @@
 import React from 'react';
 import { Img } from 'react-image';
 import { Skeleton } from 'antd';
-import ImageLoading from '../../assets/image_loader.svg';
+import ImageLoading from '../../assets/image-loading.gif';
 const Image = ({ src, loader, unloader, ...imgProps }) => {
   return (
     <Img
