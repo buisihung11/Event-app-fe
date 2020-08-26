@@ -9,8 +9,8 @@ class EventsSection extends Component {
     <Col span={24} style={{ padding: '30px 0' }}>
       <Col span={24}>
         <Row style={{ width: '100%', margin: '0', textAlign: 'center' }} justify="center">
-          <Col lg={8} md={10} sm={12} xs={20}>
-            <Title style={{color:'#F9A619'}}>{this.props.title}</Title>
+          <Col xl={8} lg={12}  md={12} sm={14} xs={20}>
+            <Title  className='section-title' style={{color:'#F9A619'}}>{this.props.title}</Title>
           </Col>
         </Row>
         <Row
@@ -21,7 +21,7 @@ class EventsSection extends Component {
             <Divider style={{ margin: '0', backgroundColor: 'black' }} />
           </Col>
           <Col span={1}></Col>
-          <Col lg={8} md={10} sm={12} xs={20}>
+          <Col xl={8} lg={12}  md={12} sm={14} xs={20}>
             <Divider style={{ margin: '0', backgroundColor: 'black' }} />
           </Col>
           <Col span={1}></Col>
