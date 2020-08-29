@@ -1,21 +1,17 @@
-
 import { Component } from 'react';
-import { Radio, DatePicker } from 'antd';
-import { FormattedMessage } from 'umi-plugin-react/locale';
+import { DatePicker, Row, Col } from 'antd';
+import moment from 'moment';
+import { getLocale } from 'umi-plugin-react/locale';
+import { formatMessage } from 'umi-plugin-react/locale';
+
+const DATE_FORMAT = 'DD/MM/YY';
+let currentLocale = getLocale();
 class TimeFilter extends Component {
   render = () => (
-    <Radio.Group
-      value={this.props.timeFilterValue}
-      onChange={this.props.onTimeFilterChange}
-      buttonStyle="solid"
-      size="small"
-    >
-      <Radio.Button value="today"><FormattedMessage id="events.list.filters.time.today"/></Radio.Button>
-      <Radio.Button value="tomorrow"><FormattedMessage id="events.list.filters.time.tomorrow"/></Radio.Button>
-      <Radio.Button value="nextweek"><FormattedMessage id="events.list.filters.time.nextweek"/></Radio.Button>
-      <Radio.Button value="nextmonth"><FormattedMessage id="events.list.filters.time.nextmonth"/></Radio.Button>
-      <DatePicker size="small" onChange={this.props.onDatePickerChange} />v
-    </Radio.Group>
+    <Row>
+          <DatePicker placeholder={formatMessage({id:'events.list.filters.time.from'})} style={{width:'100%'}} size="large" format={DATE_FORMAT} locale={currentLocale} />
+          <DatePicker placeholder={formatMessage({id:'events.list.filters.time.to'})} style={{width:'100%', marginTop:'10px'}} size="large" format={DATE_FORMAT} locale={currentLocale} />
+    </Row>
   );
 }
 

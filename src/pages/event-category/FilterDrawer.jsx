@@ -4,7 +4,7 @@ import {  Drawer  } from 'antd';
 import {Divider } from 'antd';
 
 import { FormattedMessage,formatMessage } from 'umi-plugin-react/locale';
-import {TimeFilter, CategoryFilter,LocationFilter} from './filters';
+import {TimeFilter, CategoryFilter,LocationFilter,PriceFilter} from './filters';
 class FilterDrawer extends Component {
   render = () => (
     <Drawer
@@ -22,12 +22,18 @@ class FilterDrawer extends Component {
         onTimeFilterChange={this.props.onTimeFilterChange}
         onDatePickerChange={this.props.onDatePickerChange}
       />
+
       <Divider />
       <h2 className="sider-filters"><FormattedMessage id="events.list.filters.location"/></h2>
       <LocationFilter/>
+
       <Divider />
       <h2 className="sider-filters"><FormattedMessage id="events.list.filters.category"/></h2>
       <CategoryFilter />
+
+      <Divider />
+      <h2 className="sider-filters"><FormattedMessage id="events.list.filters.price"/></h2>
+      <PriceFilter />
         </Drawer>
   );
 }
