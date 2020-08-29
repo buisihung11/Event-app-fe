@@ -12,11 +12,13 @@ export default {
   'events.list.filters.location': 'Địa điểm',
   'events.list.filters.location.city': 'Thành phố',
   'events.list.filters.category': 'Thể loại',
+  'events.list.filters.price': 'Giá',
+  'events.list.filters.price.all': 'Tất cả',
+  'events.list.filters.price.paid': 'Có phí',
+  'events.list.filters.price.free': 'Miễn phí',
   'events.list.filters.time': 'Thời gian',
-  'events.list.filters.time.today': 'Hôm nay',
-  'events.list.filters.time.tomorrow': 'Ngày mai',
-  'events.list.filters.time.nextweek': 'Tuần sau',
-  'events.list.filters.time.nextmonth': 'Tháng sau',
+  'events.list.filters.time.from': 'Từ ngày',
+  'events.list.filters.time.to': 'Đến ngày',
 
   // GLOBAL
   'global.timetable.monday': 'Thứ Hai',

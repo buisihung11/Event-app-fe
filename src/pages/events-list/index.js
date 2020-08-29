@@ -73,7 +73,7 @@ export default class EventsList extends React.Component {
     let children = null;
     if (this.state.isFrontPage) {
       children = [
-        (<Col lg={0} span={24} style={{ paddingTop: '15px', backgroundColor: '#F0F2F5' }}>
+        (<Col lg={0} span={24} style={{ padding: '15px 0', backgroundColor: '#F0F2F5' }}>
           <Row style={{ backgroundColor: 'inherit' }} justify='space-around'>
             {this.state.category.slice(0, 2).map(item => (
               <Button className='category-item' style={{ backgroundColor: '#fff' }} key={'link' + item.link}>

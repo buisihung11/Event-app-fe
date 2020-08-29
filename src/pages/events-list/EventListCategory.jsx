@@ -4,7 +4,6 @@ import { Divider, Layout , Menu ,Affix} from 'antd';
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'umi-plugin-react/locale';
 const { Sider } = Layout;
-const { SubMenu } = Menu;
 class EventListCategory extends Component {
   render = () => (
     <Sider

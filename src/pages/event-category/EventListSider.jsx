@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Divider, Layout } from 'antd';
 import { FilterOutlined } from '@ant-design/icons';
-import { CategoryFilter, LocationFilter, TimeFilter } from './filters';
+import { CategoryFilter, LocationFilter, TimeFilter,PriceFilter } from './filters';
 import { FormattedMessage } from 'umi-plugin-react/locale';
 const { Sider } = Layout;
 class EventListSider extends Component {
@@ -14,22 +14,30 @@ class EventListSider extends Component {
       collapsedWidth={0}
       trigger={null}
     >
-      <h1 className="sider-header">
+      {/* <h1 className="sider-header">
         <FilterOutlined /> <FormattedMessage id="events.list.filters"/>
       </h1>
-      <Divider />
+
+      <Divider /> */}
       <h2 className="sider-filters"><FormattedMessage id="events.list.filters.time"/></h2>
       <TimeFilter
         timeFilterValue={this.props.timeFilterValue}
         onTimeFilterChange={this.props.onTimeFilterChange}
         onDatePickerChange={this.props.onDatePickerChange}
       />
+
       <Divider />
       <h2 className="sider-filters"><FormattedMessage id="events.list.filters.location"/></h2>
       <LocationFilter />
+
       <Divider />
       <h2 className="sider-filters"><FormattedMessage id="events.list.filters.category"/></h2>
       <CategoryFilter />
+
+      
+      <Divider />
+      <h2 className="sider-filters"><FormattedMessage id="events.list.filters.price"/></h2>
+      <PriceFilter />
     </Sider>
   );
 }

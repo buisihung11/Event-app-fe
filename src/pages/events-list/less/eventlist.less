@@ -11,9 +11,12 @@
         background: inherit;
         // box-shadow: 0 0 15px rgba(0,0,0,.1);
         margin-right: 20px;
+        background-color: #fff;
+        padding: 20px 30px;
+        height: fit-content;
     }
     .sider-header{
-      margin-top: 40px;
+      margin-top: 10px;
     }
     .sider-filters{
       margin-bottom: 10px;
@@ -66,16 +69,19 @@
     
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .@{event-list}-wrapper {
-    .site-layout{
-      
-      padding: 15px 5px 50px 5px;
-    }
-    padding: 1rem 1rem;
+    
+    padding: 0rem 1rem;
     .@{event-list}-sider{
+        padding:0;
         margin-right: 0;
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .@{event-list}-wrapper {
+    
     
     .section-title{
       font-size: 28px;
@@ -85,7 +91,7 @@
 
 @media screen and (max-width: 480px) {
   .@{event-list}-wrapper {
-    padding: 20px 0 0 0 ;
+    padding: 0 ;
     .section-title{
       font-size: 28px;
     }
