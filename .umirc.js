@@ -7,7 +7,7 @@ export default {
       path: '/',
       component: '../layouts/index',
       routes: [
-        { path: '/', component: '../pages/home/index' },
+        { path: '/', redirect: '/events', exact: true },
         { path: '/events', component: '../pages/events-list/index' },
         { path: '/events/:id', component: '../pages/event/event-detail/EventDetail' },
       ],
@@ -21,15 +21,15 @@ export default {
         antd: true,
         dva: true,
         pwa: true,
-        dynamicImport: { webpackChunkName: true },
+        dynamicImport: { webpackChunkName: true, loadingComponent: './components/Loading.js' },
         title: 'Event Application',
         dll: false,
         locale: {
           enable: true,
           default: 'vi-VN',
-          baseNavigator: true, 
-          antd: true, 
-          baseSeparator: '-', 
+          baseNavigator: true,
+          antd: true,
+          baseSeparator: '-',
         },
         routes: {
           exclude: [
