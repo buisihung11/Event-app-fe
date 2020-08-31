@@ -138,13 +138,7 @@ const EventDetail = (props) => {
           <section className="event-image-banner">
             <Image src={banner} alt="Event Banner" />
           </section>
-          <HeaderSection
-            event={event}
-            name={name}
-            time={time}
-            location={location}
-            address={address}
-          />
+          <HeaderSection event={event} />
           <GallerySection />
           <ContentSection
             event={event}

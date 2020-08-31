@@ -27,23 +27,23 @@ export const Nav30DataSource = {
           ],
         },
       },
-      {
-        name: 'item1',
-        className: 'header3-item',
-        children: {
-          href: '/events',
-          children: [
-            {
-              children: (
-                <span>
-                  <p><FormattedMessage id='header.menu.events'/></p>
-                </span>
-              ),
-              name: 'text',
-            },
-          ],
-        },
-      },
+      // {
+      //   name: 'item1',
+      //   className: 'header3-item',
+      //   children: {
+      //     href: '/events',
+      //     children: [
+      //       {
+      //         children: (
+      //           <span>
+      //             <p><FormattedMessage id='header.menu.events'/></p>
+      //           </span>
+      //         ),
+      //         name: 'text',
+      //       },
+      //     ],
+      //   },
+      // },
       // {
       //   name: 'item2',
       //   className: 'header3-item',

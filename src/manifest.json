@@ -2,7 +2,7 @@
   "manifest_version": 1,
   "name": "Uni Event",
   "short_name": "UniEvent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Unibean Event Application",
   "icons": [
     {
@@ -24,7 +24,7 @@
         "sizes": "512x512"
       }
   ],
-  "start_url": "/",
+  "start_url": "/events",
   "theme_color": "#000000",
   "display": "standalone",
   "background_color": "#ffffff"

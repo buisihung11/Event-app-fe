@@ -35,7 +35,9 @@ import { BuyBtn } from './EventDetail';
 const { useBreakpoint } = Grid;
 const { Title, Text, Paragraph } = Typography;
 
-const ContentSection = ({ description, name, time, location, tickets, address }) => {
+const ContentSection = ({ event }) => {
+  const { description, name, time, location, tickets, address, organizer, similarEvents } =
+    event || {};
   const [tabKey, setTabKey] = useState('workingHour');
   const { lg, md, sm } = useBreakpoint();
 
@@ -52,6 +54,7 @@ const ContentSection = ({ description, name, time, location, tickets, address })
 
   const buyBtn = <BuyBtn />;
 
+  // TODO: GET FROM API
   const tabContents = {
     workingHour: (
       <section>

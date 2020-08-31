@@ -4,7 +4,7 @@ import { EnvironmentTwoTone, ClockCircleTwoTone, TagOutlined } from '@ant-design
 import './index.less';
 import { Badge, Typography, Card, Space, Tag, Divider } from 'antd';
 import Image from '../Image/Image';
-import { formatDate } from '../../utils';
+import { formatDate, currencyFormater } from '../../utils';
 
 const EventItem = ({
   id = 1,
@@ -73,7 +73,7 @@ const EventItemDetail = ({
               <Typography.Text style={{ color: '#fff' }}>
                 {price !== 0 && 'Từ '}
                 <Typography.Text style={{ color: '#fff' }} strong>
-                  {price === 0 ? 'Miễn Phí' : `${price} VND`}
+                  {price === 0 ? 'Miễn Phí' : `${currencyFormater.format(price)}`}
                 </Typography.Text>
               </Typography.Text>
             }

@@ -13,7 +13,8 @@ import { BuyBtn } from './EventDetail';
 
 const { useBreakpoint } = Grid;
 
-const HeaderSection = ({ name, time, location, address }) => {
+const HeaderSection = ({ event }) => {
+  const { name, time, location, address, follower = '--' } = event || {};
   const { md } = useBreakpoint();
 
   return (
@@ -92,7 +93,7 @@ const HeaderSection = ({ name, time, location, address }) => {
               </Typography.Text>
             </Button>
             <div style={{ textAlign: 'center', margin: '1rem 0' }}>
-              <Typography.Text type="secondary">1 người quan tâm</Typography.Text>
+              <Typography.Text type="secondary">{follower} người quan tâm</Typography.Text>
             </div>
           </div>
         </Col>
