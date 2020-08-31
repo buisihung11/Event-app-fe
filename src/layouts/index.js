@@ -5,6 +5,7 @@ import Footer1 from '../pages/home/Footer1';
 import { useState, useEffect, useCallback } from 'react';
 import useMobile from '../hooks/useMobile';
 import './layout.less';
+import ScrollToTop from '../components/ScrollToTop';
 
 const { location = {} } = typeof window !== 'undefined' ? window : {};
 
@@ -49,9 +50,9 @@ function BasicLayout(props) {
     show && (
       <div className="templates-wrapper">
         <Nav3 id="Nav3_0" key="Nav3_0" dataSource={newDataSrc} isMobile={isMobile} />
-        <div style={{ marginTop: scrolled ? '64px' : '0px', minHeight: '80vh' }}>
+        <ScrollToTop {...props} style={{ marginTop: scrolled ? '64px' : '0px', minHeight: '80vh' }}>
           {props.children}
-        </div>
+        </ScrollToTop>
         <Footer1
           id="Footer1_0"
           key="Footer1_0"
