@@ -3,6 +3,7 @@ import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
 import { getChildrenToRender } from './utils';
 import { Link } from 'umi';
+import Search from 'antd/lib/input/Search';
 
 const { Item, SubMenu } = Menu;
 
@@ -77,6 +78,9 @@ class Header3 extends React.Component {
         >
           <TweenOne animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }} {...dataSource.logo}>
             <img width="100%" src={dataSource.logo.children} alt="img" />
+          </TweenOne>
+          <TweenOne animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }} className="header-searchbar-wrapper">
+            <Search size='middle' className="header-searchbar" placeholder="Search" />
           </TweenOne>
           {isMobile && (
             <div
